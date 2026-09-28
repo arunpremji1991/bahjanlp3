@@ -11,6 +11,7 @@ Shortcode:
 - `desk` adds art-directed <source>s for large screens.
 Run from the project root:  python3 tools/build_html.py
 """
+import hashlib
 import re
 import shlex
 from pathlib import Path
@@ -76,8 +77,16 @@ def render(m):
     return ("\n" + indent).join(lines)
 
 
+def bust(m):
+    """Append a content hash so CDNs / browsers never mix old and new CSS/JS."""
+    attr, path = m.group(1), m.group(2)
+    digest = hashlib.md5((ROOT / path).read_bytes()).hexdigest()[:10]
+    return f'{attr}="{path}?v={digest}"'
+
+
 html = SRC.read_text(encoding="utf-8")
 html = re.sub(r"<pic\b[^>]*/>", render, html)
+html = re.sub(r'(href|src)="(assets/(?:css|js)/[\w.-]+\.(?:css|js))"', bust, html)
 banner = "<!-- GENERATED from src/index.src.html by tools/build_html.py — edit the source, not this file. -->\n"
 OUT.write_text(html.replace("<!doctype html>\n", "<!doctype html>\n" + banner, 1), encoding="utf-8")
 print(f"wrote {OUT.relative_to(ROOT)} ({len(html):,} chars)")

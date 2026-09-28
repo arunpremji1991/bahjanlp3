@@ -396,6 +396,7 @@ svg use { pointer-events: none; }
   .pay-list { grid-template-columns: repeat(4, 1fr); }
   .ramadan-bg img { aspect-ratio: 16 / 8; }
   .ramadan-panel { max-width: 560px; }
+  .zakat-figure img, .kaffarat-figure img { aspect-ratio: 16 / 10; }
 }
 
 /* ================= ≥ 900px ================= */

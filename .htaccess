@@ -1,0 +1,17 @@
+# Caching rules for Hostinger (Apache/LiteSpeed + hcdn).
+# HTML must always be revalidated so visitors get the page that references the
+# current ?v=<hash> CSS/JS URLs. Versioned assets and images can be cached long.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(avif|webp|jpe?g|png|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# Keep build sources private.
+RedirectMatch 404 ^/(src|tools)/
