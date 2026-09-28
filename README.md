@@ -1,80 +1,108 @@
 # Bahjah giving landing page
 
-A static, dependency-free, Arabic RTL, mobile-first landing page for Zakat, Ramadan, Eid and
-year-round giving campaigns run by جمعية بهجة العمانية للأيتام.
+A static, dependency-free, Arabic RTL, mobile-first campaign page for Zakat, Ramadan, Eid and
+year-round giving to جمعية بهجة العمانية للأيتام. It sends every donor to the official
+Bahjah payment pages, so there is no payment form here.
 
 ```
-index.html              page markup (default content = "general" campaign, readable without JS)
-assets/css/styles.css   styles
-assets/js/config.js     ← campaign variables, routes, facts, bank, tracking IDs
-assets/js/app.js        runtime (campaign switch, UTM persistence, tracking, fallback, sticky CTA)
-assets/img/             official Bahjah images (see SOURCES.md)
-SOURCES.md              provenance + verification status of every fact and image
+src/index.src.html       ← EDIT THIS (page source with <pic …/> image shortcodes)
+index.html               generated — do not edit by hand
+assets/css/styles.css    styles (one typeface: IBM Plex Sans Arabic)
+assets/js/config.js      ← campaign variables, routes, facts, bank, contact, tracking IDs
+assets/js/app.js         runtime (campaign switch, UTM, tracking, fallback, reveal, sticky CTA)
+assets/img/opt/          optimised AVIF / WebP / JPEG variants (generated)
+assets/img/src/          original downloads (git-ignored — keep a copy elsewhere)
+tools/optimize_images.py crops + exports image variants
+tools/build_html.py      expands <pic> shortcodes → responsive <picture> in index.html
+SOURCES.md               provenance + verification status of every fact and image
 ```
+
+## Build
+
+Requires Python 3 and Pillow with AVIF/WebP support.
+
+```bash
+python3 tools/optimize_images.py
+```
+
+```bash
+python3 tools/build_html.py
+```
+
+Only the second step is needed after text or markup edits. Deploy the whole folder except
+`src/`, `tools/` and `assets/img/src/`.
+
+## Page structure
+
+1. **Hero:** headline and one primary CTA, with a floating «اختر باب عطائك» card that links straight to Zakat, the Ramadan basket, Kaffarat and Sadaqah.
+2. **Chooser «كيف تحب أن تعطي؟»:** numbered 01–05, with a swipeable row on mobile. The featured type gets a large dark lead card.
+3. **Zakat feature:** official Zakat link, the «احسب زكاتك» component and the fatwa-referral note.
+4. **Ramadan basket:** full-bleed stage showing 35 ر.ع with its source.
+5. **Kaffarat:** three separate amount blocks (15 / 1.5 / 45).
+6. **Sadaqah:** «صدقتك حيث الحاجة» plus a compact six-project picker.
+7. **«أبواب من عطائك»:** asymmetric mosaic. Real Bahjah photos are tagged «من بهجة».
+8. **Trust:** fact timeline plus the official-payment-channels panel.
+9. **Three ways to give:** website, app, bank transfer. Bank numbers stay hidden until verified.
+10. **FAQ:** accordion, plus a contact card.
+11. **Final CTA**, and a sticky CTA on mobile.
 
 ## Campaign variants
 
-Add `?campaign=` to the ad URL:
+Add `?campaign=` to the ad URL. If it's missing, the page looks for a variant name inside
+`utm_campaign` (e.g. `zakat_1447_meta` resolves to zakat), then falls back to `general`.
 
-| URL | Hero / final / sticky CTA | Section shown first |
-|---|---|---|
-| `?campaign=zakat` | أخرج زكاتك الآن → Zakat product | Zakat |
-| `?campaign=ramadan` | ساهم في السلة الرمضانية → Ramadan basket | Ramadan |
-| `?campaign=eid` | ساهم بعطائك → donation hub | Sadaqah / projects |
-| `?campaign=general` (default) | ساهم بعطائك → donation hub | Sadaqah / projects |
+| URL | Hero primary CTA | Lead chooser card | Section order | Hero image |
+|---|---|---|---|---|
+| `?campaign=general` | اختر طريقة عطائك (+ secondary أخرج زكاتك الآن) | Zakat | Zakat → Ramadan → Kaffarat → Sadaqah | iftar |
+| `?campaign=zakat` | أخرج زكاتك الآن | Zakat | Zakat → Ramadan → Kaffarat → Sadaqah | iftar |
+| `?campaign=ramadan` | ساهم في السلة الرمضانية | Ramadan | Ramadan → Kaffarat → Zakat → Sadaqah | iftar |
+| `?campaign=eid` | اختر طريقة عطائك (+ secondary ساهم بعطائك) | Sadaqah | Sadaqah → Zakat → Kaffarat → Ramadan | Eid |
 
-If `campaign` is missing, the page falls back to a variant name found inside `utm_campaign`
-(so `zakat_1447_meta` resolves to zakat), then to `defaultCampaign`. All copy lives in
-`config.campaigns`. Each campaign has exactly one primary CTA.
+All of this lives in `config.campaigns`.
 
 ## Tracking
 
-Every event goes to `window.dataLayer`. When the relevant IDs are set in `config.tracking`, the
-page also calls gtag and the Meta Pixel directly. With GTM, map these events inside GTM instead.
+Every event goes to `window.dataLayer`. Each event has a unique `event_id` plus
+`campaign_variant`, `utm_*`, `category`, `destination` and `route_mode`. When the relevant IDs are
+set in `config.tracking` without GTM, the page also calls gtag and the Meta Pixel directly.
 
-| dataLayer event | When | Meta | Google Ads label key |
-|---|---|---|---|
-| `landing_view` | page load (includes first- and last-touch source) | PageView | – |
-| `cta_click` | any tracked link | – | – |
-| `select_giving_category` | chooser card click | `SelectGivingCategory` (custom) | – |
-| `payment_page_visit` | click to any official payment route | InitiateCheckout | `payment_page_visit` |
-| `donation_complete` | return URL `?donation=complete&category=&value=&ref=` | Donate | `donation_complete` |
-| `route_fallback` | bahjah.org.om unreachable, Jood links swapped in | – | – |
+| Event | Fires on | Meta (direct mode) |
+|---|---|---|
+| `landing_view` | page load | PageView |
+| `hero_cta_click` | any hero CTA or hero-card item | custom |
+| `select_giving_category` | chooser card or hero-card item | custom |
+| `zakat_cta_click` / `ramadan_cta_click` / `kaffarat_cta_click` | any link to that route | custom |
+| `general_donation_click` | donation hub / sadaqah links | custom |
+| `project_select` | Kafala, hardship, water, meat, bills, renovation | custom |
+| `zakat_calculator_click` | «احسب زكاتك» | custom |
+| `payment_page_visit` | **any click to an official payment page** | InitiateCheckout |
+| `app_click` | app store / app-links button | custom |
+| `phone_click` / `whatsapp_click` | `tel:` / WhatsApp links | Contact |
+| `bank_transfer_interaction` | «تحقّق من الحسابات», FAQ bank link, copy-account button | custom |
+| `donation_complete` | return URL `?donation=complete&category=&value=&ref=` | Donate |
+| `route_fallback` | bahjah.org.om unreachable, Jood links swapped in | custom |
 
-Every event carries `campaign_variant`, `utm_*`, `category` and `route_mode`.
-
-**Completed donations:** the payment pages are hosted by Bahjah or SmartPay, so this page only
-sees a completed donation if the payment flow redirects back here. Ask Bahjah's web team to set
-the WooCommerce/SmartPay success redirect (or a thank-you-page pixel) to
-`https://<landing-url>/?donation=complete&category={cat}&value={amount}&ref={order_id}`.
-`ref` de-duplicates reloads. The better long-term option is server-side conversions
-(Meta CAPI / Google Ads offline conversions) from Bahjah's order data.
-
-**UTM persistence:** `utm_*` and click IDs (`gclid`, `fbclid`, …) are stored in localStorage as
-first- and last-touch. `utm_*` values are added to every outbound official link, so they reach
-the WooCommerce order.
+- **Meta Conversions API:** the Pixel receives `eventID` = `event_id`. Send the same id server-side, either from a GTM server container reading the dataLayer or via `tracking.capiEndpoint` (the page beacons a JSON payload there), and Meta will deduplicate.
+- **Completed donations:** this page can't see the payment result. Ask Bahjah's web team to redirect successful payments to `https://<landing-url>/?donation=complete&category={cat}&value={amount}&ref={order_id}`. `ref` de-duplicates reloads. No other conversion is recorded as a donation.
+- **UTM persistence:** `utm_*` values and click IDs are stored in localStorage as first- and last-touch. `utm_*` values are added to every outbound official link.
+- **QA switch:** `?static=1` shows all reveal-animated blocks and skips the route health check. Use it for screenshots only.
 
 ## Route fallback
 
-When the page loads it pings `bahjah.org.om` (4.5 s timeout). If the site is unreachable, links
-that have a `fallback` switch to the same initiative on Jood. Zakat has no Jood equivalent, so it
-always stays on the official URL. Turn this off with `routing.healthCheck: false`.
+On load the page pings `bahjah.org.om` (4.5 s timeout). If the site is unreachable, links that
+have a Jood `fallback` switch to it. Zakat has no Jood equivalent and always stays on the official
+URL. Disable with `routing.healthCheck: false`.
 
 ## ⚠ Pre-launch checklist
 
-1. **Open bahjah.org.om from Oman** (it was unreachable during the build) and confirm every ⚠ row in `SOURCES.md`.
-2. **Bank accounts:** check `/wp/تواصل/`. If the numbers are current, set `bank.verifiedOn` to that date. Until then the numbers stay hidden.
-3. **Product URLs:** paste the real Ramadan basket, Sadaqah, Water, Bills, Meat and Hardship product URLs into `config.routes`. They currently point to the donation hub.
-4. **App links:** add the App Store / Google Play URLs (`appIos`, `appAndroid`).
-5. **Zakat calculator:** if the legacy calculators are still live, set `routes.zakatCalculator.url`.
-6. **Awards:** add the badges from the current site to `config.awards`, with images in `assets/img/`.
-7. **Hero / OG image:** swap in an official seasonal photo and make `og:image` and `canonical` absolute URLs on the deployed domain.
-8. **Tracking IDs:** set `gtmId` (or `ga4Id` / `googleAdsId`) and `metaPixelId`, then test in GTM Preview and Meta Events Manager.
-9. **Consent:** if Bahjah's policy needs a consent banner, gate `initVendors()` in `app.js` behind it.
-10. **Ramadan amount:** re-confirm OMR 35 on the current profile before each Ramadan campaign.
-
-## Local preview
-
-```bash
-python3 -m http.server 8765
-```
+1. **Open bahjah.org.om** (unreachable from the build machine) and confirm every ⚠ row in `SOURCES.md`.
+2. **Ramadan basket URL:** paste the current official product URL into `routes.ramadan`. It currently points to the donation hub. Do the same for Sadaqah, Water, Bills, Meat and Hardship.
+3. **Zakat calculator:** set `routes.zakatCalculator.url` once the official calculator is confirmed live. Until then «احسب زكاتك» opens the official site.
+4. **App links:** set `appIos` / `appAndroid`.
+5. **Bank accounts:** verify them on `/wp/تواصل/`, then set `bank.verifiedOn`.
+6. **WhatsApp:** set `contact.whatsapp` only if Bahjah confirms an official WhatsApp number.
+7. **Contact numbers:** re-check the three phone numbers and the email on the live contact page.
+8. **Real photos:** swap Pexels images for Bahjah media-center photos where available (see `SOURCES.md`).
+9. **Awards:** add current badges to `config.awards`.
+10. **Tracking IDs:** set `gtmId` (or `ga4Id` / `googleAdsId`) and `metaPixelId`, then test in GTM Preview and Meta Events Manager.
+11. **Canonical / OG URLs** in `src/index.src.html` point to the Hostinger URL. Update them if the domain changes, then rebuild.

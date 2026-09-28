@@ -24,24 +24,45 @@ Not included because they couldn't be verified: awards and certifications, histo
 Ramadan/Eid activity dates, the Zakat calculator URL, app store URLs, and the hadith on the Jood
 Sadaqah page (the brief allows only religious text Bahjah itself publishes; left out to stay conservative).
 
-## Images (`assets/img/`)
+## Images
 
-These are the images Bahjah uploaded to its own profile on Jood (jood.om, the Ministry of Social
-Development donation portal). They were resized and recompressed; nothing else was changed.
+All optimised variants are in `assets/img/opt/` (AVIF + WebP + JPEG fallback, built by
+`tools/optimize_images.py`). Every `<img>` carries a `data-source` attribute and an HTML comment
+with its source URL.
 
-| File | Original | Jood original filename | Used for |
-|---|---|---|---|
-| `bahjah-logo.jpg` | https://jood.om/en/Files/Image/9a53d08e-de45-4975-8bea-b0cf0000b0cf | شعار الجمعية 2021.jpg | Header, favicon, og:image |
-| `school-supplies.jpg` | https://jood.om/en/Files/Image/4d595cfc-cf92-4de0-bafc-b1800000b180 | المساعدات النقدية new-09.jpg (School bag initiative) | Hero |
-| `sponsorship.jpg` | https://jood.om/en/Files/Image/b07a6944-51b6-495f-9f72-b18e0000b18e | DSC_50 2.JPG (Orphan sponsorship initiative) | Other giving |
-| `food-kaffarat.jpg` | https://jood.om/en/Files/Image/487933ab-0ccf-48c3-8b27-b1870000b187 | detail.jpg (Kaffara / meat initiatives) | Ramadan section |
-| `hardship.jpg` | https://jood.om/en/Files/Image/3fabf74e-9d76-46f5-b411-b1800000b180 | المساعدات النقدية new-02.jpg (Relieve a burden) | Other giving |
-| `renovation.jpg` | https://jood.om/en/Files/Image/68e9da47-e51b-4e0f-ad01-b1800000b180 | المساعدات السكنية new-02.jpg (Renovation) | Other giving |
+### Official Bahjah images
 
-Only the hero and sponsorship images show children. Neither shows a face, and neither carries a
-name or story. The hardship, renovation and food images are illustrative pictures Bahjah chose
-for those initiatives. They are captioned as project images, not as beneficiary photos.
+Bahjah's own uploads on its Jood profile (jood.om, Ministry of Social Development portal).
+They are marked «من بهجة» on the page.
 
-**Replace before launch if possible:** once bahjah.org.om is reachable, use its Ramadan/seasonal
-news photos (1200×630 or larger) for the hero and `og:image`, and add award badges to
-`config.awards`.
+| Variant | Original | Used for |
+|---|---|---|
+| `assets/img/bahjah-logo.jpg` | https://jood.om/en/Files/Image/9a53d08e-de45-4975-8bea-b0cf0000b0cf | Header, footer, favicon, OG image |
+| `bahjah-kids` | https://jood.om/en/Files/Image/4d595cfc-cf92-4de0-bafc-b1800000b180 | Trust section, OG image |
+| `bahjah-sponsorship` | https://jood.om/en/Files/Image/b07a6944-51b6-495f-9f72-b18e0000b18e | Chooser «مشاريع أخرى», mosaic «كفالة الأيتام» |
+| `bahjah-hardship` | https://jood.om/en/Files/Image/3fabf74e-9d76-46f5-b411-b1800000b180 | Mosaic «فك كربة» |
+| `bahjah-renovation` | https://jood.om/en/Files/Image/68e9da47-e51b-4e0f-ad01-b1800000b180 | Mosaic «بناء وترميم» |
+
+### Pexels images (free under the Pexels License, https://www.pexels.com/license/)
+
+These are illustrative only and do not show Bahjah beneficiaries. The page says so under the mosaic.
+
+| Variant(s) | Pexels page | Used for |
+|---|---|---|
+| `hero-wide`, `hero-tall` | https://www.pexels.com/photo/man-having-dinner-7129737/ | Hero (all campaigns except Eid) |
+| `eid-wide`, `eid-tall` | https://www.pexels.com/photo/bowl-of-dates-on-table-7249766/ | Hero, Eid campaign only |
+| `arch` | https://www.pexels.com/photo/girl-reading-quran-inside-a-mosque-8164713/ | Chooser «الزكاة». **Cropped to the window only; the person in the original is not shown** |
+| `zakat-tall`, `zakat-wide` | https://www.pexels.com/photo/dates-in-a-bowl-7427851/ | Zakat feature, mosaic «الزكاة» |
+| `ramadan-wide` | https://www.pexels.com/photo/food-and-drinks-served-for-ramadan-20488448/ | Ramadan stage, mosaic «السلة الرمضانية» |
+| `groceries-tall` | https://www.pexels.com/photo/close-up-shot-of-a-person-holding-a-grocery-basket-with-vegetables-8805171/ | Chooser «السلة الرمضانية», Ramadan inset |
+| `kaffarat-wide` | https://www.pexels.com/photo/people-packing-food-6995260/ | Chooser + Kaffarat section |
+| `sadaqah-wide` | https://www.pexels.com/photo/food-people-grocery-donation-6995201/ | Chooser + Sadaqah section |
+| `water-tall` | https://www.pexels.com/photo/a-person-pouring-water-into-a-glass-6642422/ | Mosaic «مياه بهجة» |
+| `final-wide`, `final-tall` | https://www.pexels.com/photo/woman-hand-holding-food-over-plate-21856018/ | Final CTA background |
+
+`og-image.jpg` (1200×630) is built from the official logo and `bahjah-kids`.
+
+**Replace when possible:** real Bahjah photos from the media center (Ramadan basket
+distribution, water project, renovation) should replace the Pexels images in those sections.
+Put the original in `assets/img/src/`, add a job to `tools/optimize_images.py`, then change the
+`<pic name=…>` in `src/index.src.html`.
