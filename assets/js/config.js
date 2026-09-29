@@ -10,6 +10,8 @@
  */
 window.BAHJAH_CONFIG = {
   defaultCampaign: "general",
+  // "ar" | "en". Visitors can switch with the header button; ?lang=en forces English (e.g. English ads).
+  defaultLang: "ar",
 
   /* ------------------------------------------------------------------
    * Official destinations (primary = bahjah.org.om).
@@ -59,6 +61,7 @@ window.BAHJAH_CONFIG = {
    *   featured : chooser card shown largest + first ("zakat" | "ramadan" | "kaffarat" | "sadaqah")
    *   order    : order of the four feature sections after the chooser
    *   heroImage: "iftar" (default) | "eid"
+ *   en       : English copy for the same fields (labels only — routes come from the Arabic spec)
    * ------------------------------------------------------------------ */
   campaigns: {
     general: {
@@ -77,7 +80,15 @@ window.BAHJAH_CONFIG = {
       featured: "zakat",
       order: ["zakat", "ramadan", "kaffarat", "sadaqah"],
       heroImage: "iftar",
-      docTitle: "زكاة وصدقة وكفارات | جمعية بهجة العمانية للأيتام"
+      docTitle: "زكاة وصدقة وكفارات | جمعية بهجة العمانية للأيتام",
+      en: {
+        eyebrow: "Omani Bahjah Orphan Society",
+        headline: "Give in a way that lasts",
+        sub: "Zakat, sadaqah, kaffarah or a seasonal project — choose how you give, then complete your donation on Bahjah's official pages.",
+        primary: "Choose how to give", secondary: "Pay your Zakat now", sticky: "Choose how to give",
+        final: { title: "A small gift, a great joy", text: "Choose how you give and complete your donation securely on Bahjah's official page.", primary: "Give now", secondary: "Choose a giving type" },
+        docTitle: "Zakat, Sadaqah & Kaffarat | Omani Bahjah Orphan Society"
+      }
     },
     zakat: {
       eyebrow: "زكاة المال",
@@ -95,7 +106,15 @@ window.BAHJAH_CONFIG = {
       featured: "zakat",
       order: ["zakat", "ramadan", "kaffarat", "sadaqah"],
       heroImage: "iftar",
-      docTitle: "أخرج زكاتك للأيتام | جمعية بهجة العمانية للأيتام"
+      docTitle: "أخرج زكاتك للأيتام | جمعية بهجة العمانية للأيتام",
+      en: {
+        eyebrow: "Zakat al-Mal",
+        headline: "Pay your Zakat to orphans registered with Bahjah",
+        sub: "Omani Bahjah Orphan Society lets you pay your wealth Zakat for the orphans registered with it, through its official Zakat page.",
+        primary: "Pay your Zakat now", secondary: "Choose how to give", sticky: "Pay your Zakat now",
+        final: { title: "Deliver your Zakat to those entitled to it", text: "Through the official Zakat page of Omani Bahjah Orphan Society.", primary: "Pay your Zakat now", secondary: "Choose a giving type" },
+        docTitle: "Pay your Zakat for orphans | Omani Bahjah Orphan Society"
+      }
     },
     ramadan: {
       eyebrow: "مشروع السلة الرمضانية",
@@ -113,7 +132,15 @@ window.BAHJAH_CONFIG = {
       featured: "ramadan",
       order: ["ramadan", "kaffarat", "zakat", "sadaqah"],
       heroImage: "iftar",
-      docTitle: "السلة الرمضانية لأسر الأيتام | جمعية بهجة العمانية للأيتام"
+      docTitle: "السلة الرمضانية لأسر الأيتام | جمعية بهجة العمانية للأيتام",
+      en: {
+        eyebrow: "Ramadan Basket project",
+        headline: "A Ramadan basket that covers an orphan family for most of the month",
+        sub: "An annual project for the orphan families registered with Bahjah — OMR 35 per family.",
+        primary: "Contribute to the Ramadan Basket", secondary: "Choose how to give", sticky: "Contribute to the Ramadan Basket",
+        final: { title: "Share Ramadan's table with orphan families", text: "OMR 35 covers a registered family's basket for most of the month, according to the society's official profile.", primary: "Contribute to the Ramadan Basket", secondary: "Choose a giving type" },
+        docTitle: "Ramadan Basket for orphan families | Omani Bahjah Orphan Society"
+      }
     },
     eid: {
       eyebrow: "عطاء العيد",
@@ -131,7 +158,15 @@ window.BAHJAH_CONFIG = {
       featured: "sadaqah",
       order: ["sadaqah", "zakat", "kaffarat", "ramadan"],
       heroImage: "eid",
-      docTitle: "عطاء العيد لأسر الأيتام | جمعية بهجة العمانية للأيتام"
+      docTitle: "عطاء العيد لأسر الأيتام | جمعية بهجة العمانية للأيتام",
+      en: {
+        eyebrow: "Eid giving",
+        headline: "Make Eid joy reach more orphan families",
+        sub: "General sadaqah, meat donations or orphan sponsorship — choose your project and complete your donation on Bahjah's official pages.",
+        primary: "Choose how to give", secondary: "Give now", sticky: "Choose how to give",
+        final: { title: "Share the joy of Eid with orphans", text: "Choose how you give and complete your donation securely on Bahjah's official page.", primary: "Give now", secondary: "Choose a giving type" },
+        docTitle: "Eid giving for orphan families | Omani Bahjah Orphan Society"
+      }
     }
   },
 

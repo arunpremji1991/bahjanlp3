@@ -46,6 +46,12 @@
   if (params.get("campaign") || params.get("utm_campaign")) save("bahjah_campaign", campaignKey);
   document.documentElement.setAttribute("data-campaign", campaignKey);
 
+  /* ---------------- language ---------------- */
+  var DICT = (window.BAHJAH_I18N || {}).en || {};
+  var qLang = (params.get("lang") || "").toLowerCase();
+  var lang = (qLang === "en" || qLang === "ar") ? qLang : (load("bahjah_lang") || CFG.defaultLang || "ar");
+  function t(key, fallback) { return (lang === "en" && DICT[key]) || fallback; }
+
   /* ---------------- routes ---------------- */
   function routeUrl(name) {
     var r = (CFG.routes || {})[name];
@@ -88,7 +94,8 @@
     if (!el) return;
     if (!spec) { el.hidden = true; return; }
     var icon = el.querySelector("svg");
-    el.textContent = spec.label;
+    var enLabel = getPath(C.en || {}, el.getAttribute("data-campaign-cta"));
+    el.textContent = (lang === "en" && typeof enLabel === "string") ? enLabel : spec.label;
     if (icon) el.appendChild(icon);
     if (spec.route) {
       el.setAttribute("data-route", spec.route);
@@ -100,19 +107,29 @@
     }
   }
 
-  function applyCampaign() {
+  function campaignText(path) {
+    var en = lang === "en" ? getPath(C.en || {}, path) : null;
+    return (typeof en === "string" && en) || getPath(C, path);
+  }
+
+  function applyCampaignText() {
     document.querySelectorAll("[data-campaign-text]").forEach(function (el) {
-      var v = C[el.getAttribute("data-campaign-text")];
+      var v = campaignText(el.getAttribute("data-campaign-text"));
       if (v) el.textContent = v;
     });
     document.querySelectorAll("[data-campaign-final]").forEach(function (el) {
-      var v = C.final && C.final[el.getAttribute("data-campaign-final")];
+      var v = campaignText("final." + el.getAttribute("data-campaign-final"));
       if (v) el.textContent = v;
     });
     document.querySelectorAll("[data-campaign-cta]").forEach(function (el) {
       setCta(el, getPath(C, el.getAttribute("data-campaign-cta")));
     });
-    if (C.docTitle) document.title = C.docTitle;
+    var title = campaignText("docTitle");
+    if (title) document.title = title;
+  }
+
+  function applyCampaign() {
+    applyCampaignText();
 
     // Hero image variant.
     var heroKey = C.heroImage || "iftar";
@@ -137,6 +154,51 @@
     }
   }
 
+  /* ---------------- language switch ---------------- */
+  var metaDesc = document.querySelector('meta[name="description"]');
+  var metaDescAr = metaDesc ? metaDesc.getAttribute("content") : "";
+
+  function applyLang(next, fromUser) {
+    lang = next === "en" ? "en" : "ar";
+    var root = document.documentElement;
+    root.lang = lang;
+    root.dir = lang === "en" ? "ltr" : "rtl";
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      if (el.__ar === undefined) el.__ar = el.innerHTML;
+      var en = DICT[el.getAttribute("data-i18n")];
+      el.innerHTML = (lang === "en" && en) ? en : el.__ar;
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      if (el.__arAria === undefined) el.__arAria = el.getAttribute("aria-label");
+      var en = DICT[el.getAttribute("data-i18n-aria")];
+      el.setAttribute("aria-label", (lang === "en" && en) ? en : el.__arAria);
+    });
+    document.querySelectorAll("img[data-alt-en]").forEach(function (img) {
+      if (img.__arAlt === undefined) img.__arAlt = img.alt;
+      img.alt = lang === "en" ? img.getAttribute("data-alt-en") : img.__arAlt;
+    });
+    if (metaDesc) metaDesc.setAttribute("content", lang === "en" ? (DICT["meta.description"] || metaDescAr) : metaDescAr);
+
+    applyCampaignText();
+    applyRoutes();              // links inside swapped markup get official URLs + UTMs again
+    var bd = document.getElementById("bank-date");
+    if (bd && (CFG.bank || {}).verifiedOn) bd.textContent = CFG.bank.verifiedOn;
+
+    var btn = document.getElementById("lang-btn");
+    if (btn) {
+      var toEn = lang !== "en";
+      btn.setAttribute("aria-label", toEn ? "Switch to English" : "التبديل إلى العربية");
+      btn.querySelector(".lang-long").textContent = toEn ? "English" : "العربية";
+      btn.querySelector(".lang-short").textContent = toEn ? "EN" : "ع";
+      btn.querySelectorAll("span").forEach(function (sp) { sp.lang = toEn ? "en" : "ar"; });
+    }
+    if (fromUser) {
+      save("bahjah_lang", lang);
+      track("language_switch", { language: lang });
+    }
+  }
+
   /* ---------------- bank / awards ---------------- */
   function renderBank() {
     var b = CFG.bank || {};
@@ -147,10 +209,10 @@
       var name = document.createElement("span"); name.textContent = acc.bank;
       var num = document.createElement("code"); num.textContent = acc.number;
       var btn = document.createElement("button");
-      btn.type = "button"; btn.textContent = "نسخ";
+      btn.type = "button"; btn.textContent = t("bank.copy", "نسخ");
       btn.setAttribute("aria-label", "نسخ رقم حساب " + acc.bank);
       btn.addEventListener("click", function () {
-        try { navigator.clipboard.writeText(acc.number); btn.textContent = "تم النسخ"; } catch (e) { /* ignore */ }
+        try { navigator.clipboard.writeText(acc.number); btn.textContent = t("bank.copied", "تم النسخ"); } catch (e) { /* ignore */ }
         track("bank_transfer_interaction", { action: "copy_account", bank: acc.bank });
       });
       li.appendChild(name); li.appendChild(num); li.appendChild(btn); list.appendChild(li);
@@ -212,6 +274,7 @@
     data = data || {};
     data.event_id = eventId();
     data.campaign_variant = campaignKey;
+    data.language = lang;
     data.utm_source = last.utm_source || "";
     data.utm_medium = last.utm_medium || "";
     data.utm_campaign = last.utm_campaign || "";
@@ -291,7 +354,7 @@
     });
     var d = document.createElement("div");
     d.setAttribute("role", "status");
-    d.textContent = "شكرًا لعطائك — تقبّل الله منك.";
+    d.textContent = t("thanks", "شكرًا لعطائك — تقبّل الله منك.");
     d.style.cssText = "position:fixed;top:78px;inset-inline:16px;z-index:60;background:#1E5A3C;color:#fff;padding:14px 18px;border-radius:14px;text-align:center;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.2)";
     document.body.appendChild(d);
     setTimeout(function () { d.remove(); }, 6000);
@@ -343,6 +406,10 @@
   applyCampaign();
   applyRoutes();
   renderBank();
+  if (lang === "en") applyLang("en", false);
+  if (qLang === "en" || qLang === "ar") save("bahjah_lang", lang);
+  var langBtn = document.getElementById("lang-btn");
+  if (langBtn) langBtn.addEventListener("click", function () { applyLang(lang === "en" ? "ar" : "en", true); });
   renderAwards();
   initVendors();
   if (window.fbq && T.metaPixelId) window.fbq("init", T.metaPixelId);

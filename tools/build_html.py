@@ -65,6 +65,8 @@ def render(m):
     lines.append(f'  <source type="image/avif" srcset="{srcset(name, widths, "avif")}" sizes="{sizes}">')
     lines.append(f'  <source type="image/webp" srcset="{srcset(name, widths, "webp")}" sizes="{sizes}">')
     img = [f'src="assets/img/opt/{jpg}"', f'width="{w}"', f'height="{h}"', f'alt="{a.get("alt", "")}"']
+    if a.get("alten"):
+        img.append(f'data-alt-en="{a["alten"]}"')
     if a.get("class"):
         img.append(f'class="{a["class"]}"')
     img.append('loading="eager" fetchpriority="high"' if eager else 'loading="lazy"')

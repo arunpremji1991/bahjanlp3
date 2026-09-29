@@ -9,6 +9,7 @@ src/index.src.html       ← EDIT THIS (page source with <pic …/> image shortc
 index.html               generated — do not edit by hand
 assets/css/styles.css    styles (one typeface: IBM Plex Sans Arabic)
 assets/js/config.js      ← campaign variables, routes, facts, bank, contact, tracking IDs
+assets/js/i18n.js        English strings for the language toggle
 assets/js/app.js         runtime (campaign switch, UTM, tracking, fallback, reveal, sticky CTA)
 assets/img/opt/          optimised AVIF / WebP / JPEG variants (generated)
 assets/img/src/          original downloads (git-ignored — keep a copy elsewhere)
@@ -45,6 +46,17 @@ Only the second step is needed after text or markup edits. Deploy the whole fold
 9. **Three ways to give:** website, app, bank transfer. Bank numbers stay hidden until verified.
 10. **FAQ:** accordion, plus a contact card.
 11. **Final CTA**, and a sticky CTA on mobile.
+
+## Language toggle (Arabic / English)
+
+The header button switches the whole page between Arabic (RTL) and English (LTR) without reloading.
+
+- Arabic is the source and lives in `src/index.src.html`. Translatable elements carry `data-i18n="key"`, and English strings are in `assets/js/i18n.js`. Image `alten="…"` attributes become `data-alt-en`.
+- Campaign copy (hero, CTAs, final section, page title) is in `config.campaigns.<name>.en`.
+- `?lang=en` forces English (use it for English ads). The visitor's choice is remembered in localStorage, and `config.defaultLang` sets the default.
+- Every analytics event carries `language`, and switching fires `language_switch`.
+- Official Bahjah donation pages are unchanged, so English visitors still pay on the official site.
+- When you add new Arabic text, give it a `data-i18n` key and add the English to `i18n.js`. Otherwise it stays Arabic in English mode.
 
 ## Campaign variants
 
