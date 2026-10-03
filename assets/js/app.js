@@ -112,7 +112,15 @@
     return (typeof en === "string" && en) || getPath(C, path);
   }
 
+  var IS_MAIN = !!document.querySelector("[data-campaign-text]");
+  var docTitleAr = document.title;
+
   function applyCampaignText() {
+    if (!IS_MAIN) {
+      var tk = document.documentElement.getAttribute("data-title-key");
+      document.title = (lang === "en" && tk && DICT[tk]) ? DICT[tk] : docTitleAr;
+      return;
+    }
     document.querySelectorAll("[data-campaign-text]").forEach(function (el) {
       var v = campaignText(el.getAttribute("data-campaign-text"));
       if (v) el.textContent = v;
@@ -130,6 +138,7 @@
 
   function applyCampaign() {
     applyCampaignText();
+    if (!IS_MAIN) return;
 
     // Hero image variant.
     var heroKey = C.heroImage || "iftar";
@@ -155,6 +164,7 @@
   }
 
   /* ---------------- language switch ---------------- */
+  var langListeners = [];
   var metaDesc = document.querySelector('meta[name="description"]');
   var metaDescAr = metaDesc ? metaDesc.getAttribute("content") : "";
 
@@ -178,7 +188,8 @@
       if (img.__arAlt === undefined) img.__arAlt = img.alt;
       img.alt = lang === "en" ? img.getAttribute("data-alt-en") : img.__arAlt;
     });
-    if (metaDesc) metaDesc.setAttribute("content", lang === "en" ? (DICT["meta.description"] || metaDescAr) : metaDescAr);
+    var metaKey = document.documentElement.getAttribute("data-meta-key") || "meta.description";
+    if (metaDesc) metaDesc.setAttribute("content", lang === "en" ? (DICT[metaKey] || metaDescAr) : metaDescAr);
 
     applyCampaignText();
     applyRoutes();              // links inside swapped markup get official URLs + UTMs again
@@ -193,6 +204,7 @@
       btn.querySelector(".lang-short").textContent = toEn ? "EN" : "ع";
       btn.querySelectorAll("span").forEach(function (sp) { sp.lang = toEn ? "en" : "ar"; });
     }
+    langListeners.forEach(function (fn) { try { fn(lang); } catch (e) { /* ignore */ } });
     if (fromUser) {
       save("bahjah_lang", lang);
       track("language_switch", { language: lang });
@@ -322,6 +334,8 @@
     var cta = a.getAttribute("data-cta");
     var href = a.getAttribute("href") || "";
     var info = { cta: cta, category: a.getAttribute("data-category") || route, destination: a.href, route: route };
+    var val = parseFloat(a.getAttribute("data-value") || "");
+    if (!isNaN(val)) { info.value = val; save("bahjah_last_amount", val); }
 
     track("cta_click", info);
     if (cta.indexOf("hero") === 0) track("hero_cta_click", info);
@@ -349,7 +363,8 @@
     var value = parseFloat(params.get("value") || "");
     track("donation_complete", {
       category: params.get("category") || load("bahjah_last_category") || "",
-      value: isNaN(value) ? undefined : value,
+      value: isNaN(value) ? undefined : value,              // only the amount the payment page reports
+      intended_amount: load("bahjah_last_amount") || undefined,
       transaction_id: ref
     });
     var d = document.createElement("div");
@@ -401,6 +416,16 @@
     });
     watch.forEach(function (el) { io.observe(el); });
   }
+
+  /* Small API for page-specific scripts (e.g. fak-korba.js). */
+  window.BahjahApp = {
+    track: function (e, d) { track(e, d); },
+    t: function (k, fb) { return t(k, fb); },
+    lang: function () { return lang; },
+    routeUrl: function (n) { return decorate(routeUrl(n)); },
+    onLang: function (fn) { langListeners.push(fn); },
+    config: CFG
+  };
 
   /* ---------------- boot ---------------- */
   applyCampaign();

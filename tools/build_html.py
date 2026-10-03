@@ -19,8 +19,6 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 OPT = ROOT / "assets/img/opt"
-SRC = ROOT / "src/index.src.html"
-OUT = ROOT / "index.html"
 
 
 def variants(name):
@@ -86,9 +84,22 @@ def bust(m):
     return f'{attr}="{path}?v={digest}"'
 
 
-html = SRC.read_text(encoding="utf-8")
-html = re.sub(r"<pic\b[^>]*/>", render, html)
-html = re.sub(r'(href|src)="(assets/(?:css|js)/[\w.-]+\.(?:css|js))"', bust, html)
-banner = "<!-- GENERATED from src/index.src.html by tools/build_html.py — edit the source, not this file. -->\n"
-OUT.write_text(html.replace("<!doctype html>\n", "<!doctype html>\n" + banner, 1), encoding="utf-8")
-print(f"wrote {OUT.relative_to(ROOT)} ({len(html):,} chars)")
+PAGES = [
+    # (source, output, path prefix to the site root)
+    (ROOT / "src/index.src.html", ROOT / "index.html", ""),
+    (ROOT / "src/fak-korba.src.html", ROOT / "fak-korba/index.html", "../"),
+]
+
+for src, out, prefix in PAGES:
+    if not src.exists():
+        continue
+    html = src.read_text(encoding="utf-8")
+    html = re.sub(r"<pic\b[^>]*/>", render, html)
+    html = re.sub(r'(href|src)="(assets/(?:css|js)/[\w.-]+\.(?:css|js))"', bust, html)
+    if prefix:
+        # Root-relative asset paths → relative to the page's folder (also inside srcset lists).
+        html = re.sub(r'(?<=[\s"(,])assets/', prefix + "assets/", html)
+    banner = f"<!-- GENERATED from {src.relative_to(ROOT)} by tools/build_html.py — edit the source, not this file. -->\n"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(html.replace("<!doctype html>\n", "<!doctype html>\n" + banner, 1), encoding="utf-8")
+    print(f"wrote {out.relative_to(ROOT)} ({len(html):,} chars)")

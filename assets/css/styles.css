@@ -499,3 +499,161 @@ svg use { pointer-events: none; }
   .hero-grid { gap: 88px; }
   .float-card { inset-inline-start: -96px; }
 }
+
+/* =====================================================================
+   «فك كربة» page (/fak-korba/) — immediate-donation layout
+   ===================================================================== */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Hero: full-bleed human image, copy over a soft dark gradient */
+.fk-hero {
+  position: relative; isolation: isolate; color: #fff; overflow: hidden;
+  min-height: min(86svh, 760px); display: flex; align-items: flex-end; padding-block: 120px 44px;
+}
+.fk-hero-bg { position: absolute; inset: 0; z-index: -1; }
+.fk-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 30%; animation: heroIn 1.6s var(--ease) both; }
+.fk-hero-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(20, 22, 19, .9) 0%, rgba(20, 22, 19, .62) 42%, rgba(20, 22, 19, .08) 78%);
+}
+.fk-illustrative {
+  position: absolute; top: 12px; inset-inline-end: 12px; z-index: 2;
+  font-size: .72rem; font-weight: 500; color: #fff; background: rgba(0, 0, 0, .38); padding: 2px 10px; border-radius: 999px;
+}
+.fk-hero-inner { width: 100%; }
+.fk-hero-copy { max-width: 600px; }
+.fk-eyebrow { color: #E8D9B5; }
+.fk-hero h1 { color: #fff; font-size: clamp(2.2rem, 8.8vw, 4.2rem); line-height: 1.22; margin-bottom: .35em; }
+.fk-sub { color: #EDE8DD; font-size: 1.12rem; max-width: 30em; margin-bottom: 22px; }
+.fk-hero-cta { width: 100%; }
+.fk-proof { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .86rem; color: #E4E0D6; }
+.fk-proof li { display: inline-flex; align-items: center; gap: 7px; }
+.fk-proof .ico { color: #BFE3A9; }
+
+/* Case box */
+.fk-case-wrap { position: relative; z-index: 3; margin-top: -28px; }
+.fk-case {
+  background: var(--paper); border-radius: var(--r-xl); box-shadow: var(--shadow); padding: 22px 20px;
+  display: grid; grid-template-columns: 112px 1fr; gap: 16px 18px; align-items: center;
+  grid-template-areas: "head head" "ring stats" "bar bar" "foot foot";
+}
+.fk-case-head { grid-area: head; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.fk-case-head h2 { font-size: 1.35rem; margin: 0; }
+.fk-urgent { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 700; color: #8A3B12; background: #F7E3D4; padding: 3px 12px; border-radius: 999px; }
+.fk-urgent::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #C2551F; }
+.fk-ring {
+  grid-area: ring; position: relative; width: 112px; height: 112px; border-radius: 50%;
+  background: conic-gradient(var(--green) calc(var(--pct) * 1%), var(--ivory-2) 0);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.fk-ring::before { content: ""; position: absolute; inset: 10px; border-radius: 50%; background: var(--paper); }
+.fk-ring > * { position: relative; }
+.fk-ring span { font-size: 1.5rem; font-weight: 700; line-height: 1; color: var(--green); }
+.fk-ring small { font-size: .72rem; color: var(--ink-3); margin-top: 4px; }
+.fk-stats { grid-area: stats; margin: 0; display: grid; gap: 8px; }
+.fk-stats div { background: var(--ivory); border-radius: var(--r-md); padding: 8px 12px; }
+.fk-stats dt { font-size: .78rem; color: var(--ink-3); }
+.fk-stats dd { margin: 0; font-size: 1.12rem; font-weight: 700; }
+.fk-stat-remaining { background: var(--olive-soft) !important; }
+.fk-bar { grid-area: bar; height: 10px; border-radius: 999px; background: var(--ivory-2); overflow: hidden; }
+.fk-bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green-2), var(--green)); border-radius: inherit; transition: width 1.2s var(--ease); }
+.fk-case-foot { grid-area: foot; margin: 0; font-size: .84rem; color: var(--ink-3); }
+
+/* How it helps */
+.fk-help { background: var(--ivory); }
+.fk-help-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fk-help-grid li { background: var(--paper); border-radius: var(--r-lg); padding: 20px 16px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+.fk-help-grid strong { font-size: 1.05rem; }
+.fk-help-grid li > span:last-child { font-size: .9rem; color: var(--ink-2); line-height: 1.6; }
+.fk-help-ico { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--olive-soft); color: var(--green); margin-bottom: 6px; }
+.fk-help-ico svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Give: amount picker + story */
+.fk-give { background: var(--paper); scroll-margin-top: 64px; }
+.fk-give-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.fk-amount { order: -1; background: var(--ivory); border-radius: var(--r-xl); padding: 24px 20px; }
+.fk-amount h2 { font-size: clamp(1.6rem, 6vw, 2.1rem); margin-bottom: .1em; }
+.fk-amount-sub { color: var(--ink-2); margin-bottom: 18px; }
+.fk-chips { border: 0; margin: 0 0 10px; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.fk-chip { position: relative; }
+.fk-chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.fk-chip span {
+  display: flex; align-items: baseline; justify-content: center; gap: 4px; min-height: 58px; padding: 14px 6px;
+  background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--r-md); cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s, transform .15s;
+}
+.fk-chip b { font-size: 1.35rem; }
+.fk-chip small { font-size: .8rem; color: var(--ink-3); }
+.fk-chip:hover span { border-color: var(--green-2); }
+.fk-chip input:checked + span { border-color: var(--green); background: var(--green); color: #fff; transform: translateY(-1px); }
+.fk-chip input:checked + span small { color: #d5eadb; }
+.fk-chip input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+.fk-other { display: grid; gap: 6px; margin-bottom: 6px; }
+.fk-other-label { font-size: .88rem; font-weight: 600; color: var(--ink-2); }
+.fk-other-field { display: flex; align-items: center; gap: 8px; min-height: 54px; padding: 0 16px; background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--r-md); }
+.fk-other-field:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px rgba(30, 90, 60, .15); }
+.fk-other-field input { flex: 1; min-width: 0; border: 0; background: transparent; font: 600 1.15rem var(--font); color: var(--ink); outline: none; }
+.fk-other-field small { color: var(--ink-3); font-weight: 600; }
+.fk-hint { font-size: .82rem; color: #8A3B12; margin: 0 0 6px; }
+.fk-freq { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 16px; font-size: .88rem; font-weight: 600; color: var(--green); background: var(--paper); border-radius: 999px; padding: 4px 12px; }
+.fk-give-cta { font-size: 1.12rem; }
+.fk-give-note { display: flex; gap: 8px; align-items: flex-start; margin: 12px 0 0; font-size: .84rem; color: var(--ink-2); line-height: 1.6; }
+.fk-give-note .ico { color: var(--green); margin-top: 3px; }
+
+.fk-story { background: var(--ivory); border-radius: var(--r-xl); overflow: hidden; display: flex; flex-direction: column; }
+.fk-story-media { position: relative; }
+.fk-story-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.fk-story-body { padding: 22px 20px 24px; }
+.fk-story-title { font-size: clamp(1.4rem, 5vw, 1.8rem); line-height: 1.4; margin: 10px 0 12px; }
+.fk-story-body p { color: var(--ink-2); margin: 0; }
+
+/* Why Bahjah + payment */
+.fk-why { background: var(--ivory); }
+.fk-why-card { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; background: var(--paper); border-radius: var(--r-xl); padding: 18px; }
+.fk-why-photo { position: relative; border-radius: var(--r-lg); overflow: hidden; }
+.fk-why-photo img { width: 100%; aspect-ratio: 16 / 11; object-fit: cover; }
+.fk-why-photo figcaption { position: absolute; bottom: 10px; inset-inline-start: 10px; background: rgba(255, 253, 248, .94); color: var(--green); font-size: .76rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+.fk-why-body h2 { margin-bottom: .2em; }
+.fk-why-grid { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.fk-why-grid li { background: var(--ivory); border-radius: var(--r-md); padding: 14px; display: flex; flex-direction: column; gap: 2px; }
+.fk-why-grid b { font-size: 1.25rem; line-height: 1.3; }
+.fk-why-grid li > span:last-child { font-size: .84rem; color: var(--ink-2); line-height: 1.5; }
+.fk-why-ico { color: var(--olive); margin-bottom: 4px; }
+.fk-why-ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.fk-pay-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 12px; }
+.fk-pay { background: var(--paper); border-radius: var(--r-xl); padding: 22px 20px; }
+.fk-pay h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.fk-pay h3 .ico { color: var(--green); }
+.fk-pay > p { color: var(--ink-2); font-size: .95rem; }
+.fk-pay-list { grid-template-columns: minmax(0, 1fr) !important; }
+.fk-pay-list li { background: var(--ivory); }
+.fk-other-ways { font-size: .92rem; margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--line); }
+
+.fk-final h2 { font-size: clamp(1.9rem, 7vw, 3.2rem); line-height: 1.35; }
+
+/* LTR: mirror the silhouette so the copy sits over open sky */
+[dir="ltr"] .fk-hero-bg img { transform: scaleX(-1); animation: none; }
+
+@media (min-width: 700px) {
+  .fk-hero-cta { width: auto; }
+  .fk-help-grid { grid-template-columns: repeat(4, 1fr); }
+  .fk-case { grid-template-columns: 132px 1fr; grid-template-areas: "head head" "ring stats" "ring bar" "foot foot"; }
+  .fk-ring { width: 132px; height: 132px; }
+  .fk-stats { grid-template-columns: repeat(3, 1fr); }
+  .fk-pay-grid { grid-template-columns: 1.1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .fk-hero { align-items: center; min-height: min(84vh, 760px); padding-block: 80px; }
+  .fk-hero-bg img { object-position: 30% 55%; }
+  [dir="ltr"] .fk-hero-bg img { object-position: 70% 55%; }
+  .fk-hero-bg::after { background: linear-gradient(to left, rgba(20, 22, 19, .86) 0%, rgba(20, 22, 19, .55) 40%, rgba(20, 22, 19, .05) 72%); }
+  [dir="ltr"] .fk-hero-bg::after { background: linear-gradient(to right, rgba(20, 22, 19, .86) 0%, rgba(20, 22, 19, .55) 40%, rgba(20, 22, 19, .05) 72%); }
+  .fk-case-wrap { margin-top: -56px; }
+  .fk-case { padding: 28px 32px; }
+  .fk-give-grid { grid-template-columns: 1.05fr 1fr; gap: 24px; align-items: stretch; }
+  .fk-amount { order: 0; padding: 34px 32px; }
+  .fk-story-media img { aspect-ratio: 16 / 11; }
+  .fk-why-card { grid-template-columns: 340px 1fr; gap: 36px; padding: 24px; align-items: center; }
+  .fk-why-grid { grid-template-columns: repeat(4, 1fr); }
+}

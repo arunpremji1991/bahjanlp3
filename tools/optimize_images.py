@@ -42,6 +42,12 @@ JOBS = {
     # Final CTA background — shared table (Pexels 21856018)
     "final-wide":     ("sharing-table_pexels-21856018.jpg", (0, 280, 1600, 1180), [800, 1400]),
     "final-tall":     ("sharing-table_pexels-21856018.jpg", None, [560, 900]),
+    # Fak Korba page (Pexels 29810534 / 26775361 / 29702438) — anonymous silhouettes / hands only
+    "fk-hero-tall":   ("fk-hero_pexels-29810534.jpg", (0, 100, 2000, 2600), [560, 840, 1200]),
+    "fk-hero-wide":   ("fk-hero_pexels-29810534.jpg", (0, 600, 2000, 2480), [640, 960, 1400]),
+    "fk-hands":       ("fk-hands_pexels-26775361.jpg", None, [640, 1000, 1400]),
+    "fk-final-wide":  ("fk-final_pexels-29702438.jpg", (0, 880, 2000, 2005), [800, 1400]),
+    "fk-final-tall":  ("fk-final_pexels-29702438.jpg", (0, 300, 2000, 2800), [560, 900]),
 }
 
 # Official Bahjah images (from Bahjah's Jood profile) — converted only, no crop.

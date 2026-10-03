@@ -170,6 +170,31 @@ window.BAHJAH_CONFIG = {
     }
   },
 
+  /* ------------------------------------------------------------------
+   * «فك كربة» page (/fak-korba/) — immediate-donation appeal.
+   * Bahjah documents this initiative as «فك كربة» under cash assistance:
+   * debt settlement for families (Jood initiative f91012f5…).
+   * ------------------------------------------------------------------ */
+  fakKorba: {
+    route: "hardship",            // routes.hardship — paste the official فك كربة product URL there once confirmed
+    amounts: [5, 10, 20, 50],     // OMR quick-pick amounts (one-time)
+    defaultAmount: 10,
+    minAmount: 1,
+
+    /* A SPECIFIC CASE. Leave enabled:false unless Bahjah has supplied real, current figures
+     * and an approved (anonymised) story. Never estimate or invent these numbers.
+     * When enabled, the page shows: required / raised / remaining, % and a progress bar,
+     * the "urgent case" tag and the case story. */
+    case: {
+      enabled: false,
+      target: 0,                  // OMR required, e.g. 4000
+      raised: 0,                  // OMR raised so far, e.g. 2480
+      updatedOn: "",              // date the figures were confirmed, e.g. "2026-10-03"
+      source: "",                 // who confirmed them (internal note, not shown)
+      story: { ar: "", en: "" }   // 2–3 sentences, anonymised, approved by Bahjah
+    }
+  },
+
   /* Documented facts (see SOURCES.md). */
   facts: {
     ramadanBasketOmr: 35,
