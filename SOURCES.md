@@ -59,6 +59,9 @@ These are illustrative only and do not show Bahjah beneficiaries. The page says 
 | `sadaqah-wide` | https://www.pexels.com/photo/food-people-grocery-donation-6995201/ | Chooser + Sadaqah section |
 | `water-tall` | https://www.pexels.com/photo/a-person-pouring-water-into-a-glass-6642422/ | Mosaic «مياه بهجة» |
 | `final-wide`, `final-tall` | https://www.pexels.com/photo/woman-hand-holding-food-over-plate-21856018/ | Final CTA background |
+| `fk-hero-tall`, `fk-hero-wide` | https://www.pexels.com/photo/father-and-child-silhouette-at-sunset-beach-29810534/ | «فك كربة» hero. Labelled «صورة تعبيرية», silhouettes only |
+| `fk-hands` | https://www.pexels.com/photo/close-up-of-a-father-and-child-holding-hands-26775361/ | «فك كربة» story card. Labelled «صورة تعبيرية» |
+| `fk-final-wide`, `fk-final-tall` | https://www.pexels.com/photo/silhouette-of-father-and-child-at-sunset-29702438/ | «فك كربة» final CTA background |
 
 `og-image.jpg` (1200×630) is built from the official logo and `bahjah-kids`.
 
@@ -66,3 +69,15 @@ These are illustrative only and do not show Bahjah beneficiaries. The page says 
 distribution, water project, renovation) should replace the Pexels images in those sections.
 Put the original in `assets/img/src/`, add a job to `tools/optimize_images.py`, then change the
 `<pic name=…>` in `src/index.src.html`.
+
+## «فك كربة» page (`/fak-korba/`)
+
+| Statement on the page | Source | Status |
+|---|---|---|
+| Bahjah runs an initiative called «فك كربة» under cash assistance, categorised as debt settlement («فك كربه (سداد دين)») | Bahjah's Jood initiative page `f91012f5…` and its related-initiatives listing | ✅ live 28 Sep 2026 |
+| Serves orphans and widows across Dhofar's wilayats; under the Ministry of Social Development; founded 2014; Royal Decree 14/2000; card payment via SmartPay | See the facts table above | As above |
+| Case figures (required / raised / remaining) and the case story | **None. Hidden until Bahjah supplies them** (`config.fakKorba.case`) | — |
+
+Not used from the reference design because they don't come from Bahjah sources: "+50,000 beneficiaries",
+"+15 years" (Bahjah was founded in 2014), "periodic reports", the Visa/Mastercard/Apple Pay/mada logos and the
+monthly-donation option.

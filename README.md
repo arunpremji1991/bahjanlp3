@@ -5,11 +5,14 @@ year-round giving to جمعية بهجة العمانية للأيتام. It sen
 Bahjah payment pages, so there is no payment form here.
 
 ```
-src/index.src.html       ← EDIT THIS (page source with <pic …/> image shortcodes)
+src/index.src.html       ← EDIT THIS: main giving page (Zakat / Ramadan / Kaffarat / Sadaqah)
+src/fak-korba.src.html   ← EDIT THIS: «فك كربة» urgent-donation page
 index.html               generated — do not edit by hand
+fak-korba/index.html     generated — do not edit by hand
 assets/css/styles.css    styles (one typeface: IBM Plex Sans Arabic)
 assets/js/config.js      ← campaign variables, routes, facts, bank, contact, tracking IDs
 assets/js/i18n.js        English strings for the language toggle
+assets/js/fak-korba.js   «فك كربة» amount picker + case box
 assets/js/app.js         runtime (campaign switch, UTM, tracking, fallback, reveal, sticky CTA)
 assets/img/opt/          optimised AVIF / WebP / JPEG variants (generated)
 assets/img/src/          original downloads (git-ignored — keep a copy elsewhere)
@@ -46,6 +49,19 @@ Only the second step is needed after text or markup edits. Deploy the whole fold
 9. **Three ways to give:** website, app, bank transfer. Bank numbers stay hidden until verified.
 10. **FAQ:** accordion, plus a contact card.
 11. **Final CTA**, and a sticky CTA on mobile.
+
+## «فك كربة» page — `/fak-korba/`
+
+A single-purpose, immediate-donation page for Bahjah's «فك كربة» (hardship relief / debt settlement) initiative.
+
+**Flow:** human hook («أسرة تنتظر الفرج… هل تكون أنت سبب الفرج؟») → case box (only with real data) → «كيف يساعد تبرعك؟» → amount picker + story → «لماذا بهجة؟» + secure payment + where the money goes → «قد يكون تبرعك اليوم هو الفرج الذي تنتظره هذه الأسرة».
+
+- **Amounts:** 5 / 10 / 20 / 50 OMR plus a custom amount, one-time only (`config.fakKorba.amounts`, `defaultAmount`). The page cannot pre-fill the amount on the official payment page, so the CTA shows the amount and a note tells donors to enter it there.
+- **Case box and story:** fill `config.fakKorba.case` (`target`, `raised`, `updatedOn`, `story.ar` / `story.en`) with figures and an anonymised story approved by Bahjah, set `enabled: true`, then rebuild. While it's disabled, the page runs as a general «فك كربة» appeal. Never estimate these numbers.
+- **Destination:** `routes.hardship`. It currently points to the donation hub, with the Jood «فك كربة» initiative as the fallback. Paste the official «فك كربة» product URL there once confirmed.
+- **Tracking:** `select_amount` (value, preset or custom), and `cta_click` / `project_select` / `payment_page_visit` with `value` = the chosen amount. `donation_complete` only reports the value sent back by the payment page, plus `intended_amount`.
+- **SEO:** the Arabic title, description and headings target فك كربة عمان، تبرع عاجل، مساعدة أسرة محتاجة، تفريج كربة، تبرع الآن، صدقة. The English versions (`?lang=en`) target Emergency Donation Oman, Donate Now Oman, Urgent Charity Oman.
+- **Ad URLs:** `https://forestgreen-camel-125506.hostingersite.com/fak-korba/` for Arabic, and the same URL with `?lang=en` for English.
 
 ## Language toggle (Arabic / English)
 
