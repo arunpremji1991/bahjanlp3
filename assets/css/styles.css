@@ -759,3 +759,17 @@ p, li, figcaption, small { text-wrap: pretty; }
 .fk-bank-list code { font: 600 .95rem/1.4 ui-monospace, Menlo, monospace; direction: ltr; unicode-bidi: isolate; }
 .fk-bank-list button { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; min-height: 32px; padding: 0 10px; cursor: pointer; font: 600 .8rem var(--font); color: var(--olive); }
 .doors + #why, .doors ~ #why { border-top: 1px solid var(--line); }
+
+/* Header menu (section links) — desktop; phones use the sticky CTA */
+.header-nav { display: none; align-items: center; gap: 4px; }
+.header-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 999px; color: var(--ink-2); text-decoration: none; font: 600 15px/1 var(--font); white-space: nowrap; transition: color .2s, background .2s; }
+.header-nav a:hover { color: var(--heading); background: #f2f8f5; }
+@media (min-width: 960px) {
+  .header-nav { display: flex; margin-inline: auto; }
+}
+.header-cta, .brand-name { white-space: nowrap; }
+.lang-btn svg, .icon-btn svg { flex: none; }
+@media (min-width: 960px) and (max-width: 1179px) {
+  .site-header .brand-name { display: none; }
+  .header-nav a { padding: 0 9px; font-size: 14.5px; }
+}

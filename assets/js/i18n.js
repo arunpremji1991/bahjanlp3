@@ -175,6 +175,9 @@ window.BAHJAH_I18N = {
     /* ---------- «فك كربة» page (/fak-korba/) ---------- */
     "fk.doctitle": "Fak Korba: Urgent Donation for a Family in Need in Oman | Bahjah",
     "fk.meta.description": "Donate now to relieve a family's hardship in Oman through Bahjah's «Fak Korba» (hardship relief) project. Urgent donation for families in need, any amount you choose, paid through the society's official channels.",
+    "fk.nav.help": "Your impact",
+    "fk.nav.give": "Choose amount",
+    "fk.nav.ground": "On the ground",
     "fk.header.cta": "Give now",
     "fk.illustrative": "Illustrative image",
     "fk.eyebrow": "Fak Korba · Urgent donation",
