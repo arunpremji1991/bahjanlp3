@@ -2,33 +2,37 @@
    Mobile-first, RTL. One typeface (IBM Plex Sans Arabic).
    Palette: warm ivory + charcoal, Bahjah green used sparingly, muted olive, a trace of gold. */
 :root {
-  --ivory: #F7F2E9;
-  --ivory-2: #EFE8DB;
-  --paper: #FFFDF8;
-  --line: #E3DACA;
-  --ink: #1C211E;
-  --ink-2: #4E5550;
-  --ink-3: #6F746E;
-  --green: #1E5A3C;
-  --green-2: #256B48;
-  --leaf: #6AA84F;
-  --olive: #5E6240;
-  --olive-soft: #E8E7D3;
-  --gold: #A8844A;
-  --night: #161D19;
-  --night-2: #1F2823;
-  --on-dark: #F3EFE6;
-  --on-dark-2: #BFC6BE;
-  --focus: #1A86A8;
+  /* Shared Bahjah landing-page system (matches the orphan-sponsorship page) */
+  --ivory: #faf6ee;        /* sand sections */
+  --ivory-2: #f2ede2;
+  --paper: #ffffff;
+  --line: #e8e3d8;
+  --ink: #14231f;
+  --ink-2: #44544e;
+  --ink-3: #6b7a74;
+  --green: #1a5f52;        /* teal-700 — primary */
+  --green-2: #237362;      /* teal-600 */
+  --leaf: #237362;
+  --olive: #11493f;        /* teal-800 */
+  --olive-soft: #e3f0eb;   /* teal-100 */
+  --gold: #e0a93b;
+  --gold-ink: #b5811c;
+  --night: #0b3b33;        /* teal-900 */
+  --night-2: #11493f;
+  --on-dark: #f1f7f4;
+  --on-dark-2: #b8cdc5;
+  --focus: #e0a93b;
+  --heading: #0b3b33;
 
-  --r-xl: 28px;
+  --r-xl: 22px;
   --r-lg: 22px;
   --r-md: 16px;
   --r-sm: 12px;
-  --shadow-sm: 0 1px 2px rgba(28, 33, 30, .05), 0 4px 14px rgba(28, 33, 30, .05);
-  --shadow: 0 2px 6px rgba(28, 33, 30, .06), 0 18px 40px -12px rgba(28, 33, 30, .18);
+  --shadow-sm: 0 1px 2px rgba(11, 59, 51, .05), 0 4px 14px rgba(11, 59, 51, .06);
+  --shadow: 0 1px 2px rgba(11, 59, 51, .05), 0 12px 32px -14px rgba(11, 59, 51, .25);
   --font: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
-  --gutter: 16px;
+  --font-display: "Alexandria", "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --gutter: 18px;
   --ease: cubic-bezier(.2, .7, .2, 1);
   color-scheme: light;
 }
@@ -114,18 +118,6 @@ svg use { pointer-events: none; }
 .header-nav { display: none; gap: 26px; }
 .header-nav a { color: var(--ink-2); text-decoration: none; font-weight: 500; font-size: .95rem; }
 .header-nav a:hover { color: var(--ink); }
-
-/* Language toggle */
-.lang-btn {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; min-width: 44px; padding: 0 14px;
-  border-radius: 999px; border: 1.5px solid rgba(28, 33, 30, .22); background: var(--paper); color: var(--ink);
-  font: 600 .92rem/1 var(--font); cursor: pointer; transition: border-color .2s, background .2s;
-}
-.lang-btn:hover { border-color: var(--ink); }
-.lang-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-.lang-btn .ico { color: var(--olive); }
-.lang-long { display: none; }
-@media (min-width: 700px) { .lang-long { display: inline; } .lang-short { display: none; } }
 
 /* LTR (English): arrows point forward the other way */
 [dir="ltr"] .arr { transform: scaleX(-1); }
@@ -370,16 +362,6 @@ svg use { pointer-events: none; }
 .final p { color: #E8E4DA; font-size: 1.12rem; }
 .final-star { width: 22px; height: 22px; color: var(--gold); margin: 0 auto 16px; display: block; }
 
-/* Footer */
-.site-footer { background: var(--ivory-2); padding-block: 36px 120px; font-size: .92rem; color: var(--ink-2); }
-.footer-grid { display: grid; gap: 18px; }
-.footer-brand { display: flex; align-items: center; gap: 14px; }
-.footer-brand img { width: 64px; mix-blend-mode: multiply; border-radius: 10px; }
-.footer-brand p { margin: 0; line-height: 1.5; }
-.footer-nav { display: flex; flex-wrap: wrap; gap: 0 18px; }
-.footer-nav a { min-height: 44px; display: inline-flex; align-items: center; color: var(--ink); }
-.footer-note { font-size: .8rem; color: var(--ink-3); margin: 0; }
-
 /* Sticky mobile CTA */
 .sticky-cta {
   position: fixed; inset-inline: 0; bottom: 0; z-index: 50;
@@ -424,7 +406,6 @@ svg use { pointer-events: none; }
   .section { padding-block: 104px; }
   .section-head { margin-bottom: 40px; }
 
-  .header-nav { display: flex; }
 
   /* Hero: asymmetric — copy + tall image with floating giving card */
   .hero { padding-block: 48px 96px; }
@@ -488,10 +469,6 @@ svg use { pointer-events: none; }
   .faq-side { position: sticky; top: 96px; }
 
   .final { min-height: 640px; }
-  .footer-grid { grid-template-columns: auto 1fr; align-items: center; column-gap: 40px; }
-  .footer-nav { justify-content: flex-end; }
-  .footer-note { grid-column: 1 / -1; }
-  .site-footer { padding-bottom: 40px; }
   .sticky-cta { display: none; }
 }
 
@@ -657,3 +634,128 @@ svg use { pointer-events: none; }
   .fk-why-card { grid-template-columns: 340px 1fr; gap: 36px; padding: 24px; align-items: center; }
   .fk-why-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* =====================================================================
+   Shared Bahjah landing-page UI — identical on every Bahjah landing page
+   (header, typography, section scaffolding, Why Bahjah, On the ground, footer)
+   ===================================================================== */
+body { background: var(--paper); font-size: 17px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-display); color: var(--heading); line-height: 1.3; font-weight: 700; text-wrap: balance; }
+h2 { font-size: clamp(24px, 6vw, 36px); }
+h3 { font-size: 18px; }
+p, li, figcaption, small { text-wrap: pretty; }
+.btn { font: 700 17px/1.2 var(--font-display); border-width: 2px; }
+.btn-lg { min-height: 58px; font-size: 18px; }
+.btn-sm { min-height: 44px; font-size: 15px; padding: 0 18px; }
+.btn-primary { background: var(--green); box-shadow: 0 10px 22px -10px rgba(26, 95, 82, .7); }
+.btn-primary:hover { background: var(--olive); transform: translateY(-1px); }
+.btn-ghost { background: var(--paper); color: var(--olive); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--green-2); background: var(--paper); }
+.btn-light { color: var(--heading); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
+
+/* Header */
+.site-header { background: rgba(255, 255, 255, .92); border-bottom: 1px solid var(--line); }
+.header-inner { justify-content: space-between; gap: 10px; min-height: 64px; }
+.brand { font: 700 15px/1.3 var(--font-display); color: var(--heading); margin: 0; }
+.brand img { width: 40px; border-radius: 8px; mix-blend-mode: multiply; }
+.brand-name { display: none; }
+.header-actions { display: flex; align-items: center; gap: 6px; }
+.lang-btn, .icon-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; min-width: 44px;
+  padding: 0 10px; border: 0; border-radius: 999px; background: transparent; color: var(--olive);
+  text-decoration: none; font: 600 14px/1 var(--font); cursor: pointer;
+}
+.lang-btn:hover, .icon-btn:hover { background: #f2f8f5; }
+.lang-btn svg, .icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon-btn svg { width: 22px; height: 22px; }
+.header-cta { display: none; }
+
+/* Section scaffolding */
+.section-sand { background: var(--ivory); }
+.section-head { max-width: 640px; margin: 0 auto 34px; text-align: center; }
+.section-head p, .section-head .lede { color: var(--ink-2); margin-inline: auto; }
+.kicker { display: block; font: 700 14px/1.5 var(--font); color: var(--gold-ink); margin-bottom: 6px; }
+.kicker .star { display: none; }
+.kicker .ico { display: inline-block; vertical-align: -3px; margin-inline-end: 6px; color: var(--gold); }
+.star { color: var(--gold); }
+.eyebrow { color: var(--gold-ink); }
+.final-star { display: none; }
+.final-bg::after { background: linear-gradient(180deg, rgba(11, 59, 51, .80), rgba(11, 59, 51, .93)); }
+.final p { color: #d9e9e2; }
+
+/* Why Bahjah */
+.why-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.fact { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); padding: 18px 12px; text-align: center; }
+.fact-ico { color: var(--gold); margin: 0 auto 6px; display: block; width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.fact b { display: block; font: 800 27px/1.15 var(--font-display); color: var(--olive); }
+.fact span { display: block; font-size: 14px; color: var(--ink-2); line-height: 1.5; margin-top: 4px; }
+.fact small { display: block; font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+.awards { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 40px 0 0; }
+.awards li { width: 76px; height: 68px; display: grid; place-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 8px; }
+.awards img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.awards-note { margin: 14px auto 0; max-width: 640px; text-align: center; font-size: 13px; color: var(--ink-3); }
+
+/* Bahjah on the ground */
+.gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.gallery li:first-child { grid-column: 1 / -1; }
+.gallery figure { margin: 0; position: relative; border-radius: var(--r-md); overflow: hidden; height: 100%; }
+.gallery img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery li:first-child img { aspect-ratio: 16 / 9; }
+.gallery figcaption { position: absolute; inset: auto 0 0 0; padding: 28px 12px 10px; background: linear-gradient(0deg, rgba(6, 30, 26, .82), transparent); color: #fff; font-size: 13px; line-height: 1.5; }
+.news-links { list-style: none; padding: 0; display: grid; gap: 10px; margin: 18px 0 0; }
+.news-links a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--r-md); text-decoration: none; color: var(--ink); background: var(--paper); height: 100%; }
+.news-links a:hover { border-color: var(--green-2); }
+.news-links b { display: block; font-size: 15px; font-weight: 600; line-height: 1.55; }
+.news-links time { font-size: 13px; color: var(--ink-3); }
+.news-links svg { width: 20px; height: 20px; flex: none; color: var(--green-2); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pay-section { padding-top: 0; background: var(--ivory); }
+.pay-section .pay-trust { margin-top: 0; background: var(--paper); border: 1px solid var(--line); }
+.fk-paysec { background: var(--ivory); padding-top: 0; }
+.fk-paysec .fk-pay-grid { margin-top: 0; }
+.fk-pay { border: 1px solid var(--line); }
+
+/* Footer */
+.site-footer { background: var(--night); color: var(--on-dark-2); font-size: 14px; padding: 30px 0 34px; }
+.footer-grid { display: grid; gap: 14px; justify-items: center; text-align: center; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { width: 40px; border-radius: 8px; background: #fff; }
+.footer-brand p { margin: 0; line-height: 1.6; }
+.footer-brand b { color: #fff; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 0; }
+.footer-links a { color: #e4efea; text-decoration: none; min-height: 32px; display: inline-flex; align-items: center; }
+.footer-links a:hover { text-decoration: underline; }
+.sources summary { cursor: pointer; color: #e4efea; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+.sources ul { text-align: start; padding-inline-start: 18px; list-style: disc; display: grid; gap: 4px; font-size: 13px; margin: 0; }
+.copy { margin: 0; font-size: 12.5px; opacity: .75; }
+
+@media (max-width: 959px) { body { padding-bottom: 84px; } }
+@media (min-width: 640px) {
+  :root { --gutter: 28px; }
+  .brand-name { display: inline; }
+  .facts { grid-template-columns: repeat(4, 1fr); }
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+  .gallery li:first-child { grid-column: auto; }
+  .gallery li:first-child img { aspect-ratio: 4 / 3; }
+  .news-links { grid-template-columns: 1fr 1fr; }
+  .awards li { width: 88px; height: 76px; }
+}
+@media (min-width: 960px) {
+  .header-cta { display: inline-flex; }
+  .section { padding-block: 96px; }
+  .why-grid { grid-template-columns: .9fr 1.1fr; align-items: center; gap: 56px; }
+  .why-grid .section-head { text-align: start; margin: 0; }
+  .why-grid .section-head p { margin-inline: 0; }
+  .footer-grid { grid-template-columns: 1fr auto; align-items: center; justify-items: stretch; text-align: start; }
+  .footer-links { justify-content: flex-end; }
+  .footer-grid .sources, .footer-grid .copy { grid-column: 1 / -1; }
+  .sources summary { justify-content: flex-start; }
+}
+
+.fk-bank-item { align-items: flex-start !important; }
+.fk-bank-list { margin: 8px 0 0; padding: 0; list-style: none; }
+.fk-bank-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 6px 0; border-top: 1px dashed var(--line); background: none !important; }
+.fk-bank-list code { font: 600 .95rem/1.4 ui-monospace, Menlo, monospace; direction: ltr; unicode-bidi: isolate; }
+.fk-bank-list button { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; min-height: 32px; padding: 0 10px; cursor: pointer; font: 600 .8rem var(--font); color: var(--olive); }
+.doors + #why, .doors ~ #why { border-top: 1px solid var(--line); }

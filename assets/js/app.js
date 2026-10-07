@@ -193,17 +193,16 @@
 
     applyCampaignText();
     applyRoutes();              // links inside swapped markup get official URLs + UTMs again
-    var bd = document.getElementById("bank-date");
-    if (bd && (CFG.bank || {}).verifiedOn) bd.textContent = CFG.bank.verifiedOn;
+    renderBank();
 
     var btn = document.getElementById("lang-btn");
     if (btn) {
       var toEn = lang !== "en";
       btn.setAttribute("aria-label", toEn ? "Switch to English" : "التبديل إلى العربية");
-      btn.querySelector(".lang-long").textContent = toEn ? "English" : "العربية";
-      btn.querySelector(".lang-short").textContent = toEn ? "EN" : "ع";
-      btn.querySelectorAll("span").forEach(function (sp) { sp.lang = toEn ? "en" : "ar"; });
+      var lbl = btn.querySelector(".lang-label");
+      if (lbl) { lbl.textContent = toEn ? "EN" : "عربي"; lbl.lang = toEn ? "en" : "ar"; }
     }
+    document.querySelectorAll("[data-lang-toggle]").forEach(function (el) { el.lang = lang === "en" ? "ar" : "en"; });
     langListeners.forEach(function (fn) { try { fn(lang); } catch (e) { /* ignore */ } });
     if (fromUser) {
       save("bahjah_lang", lang);
@@ -215,23 +214,28 @@
   function renderBank() {
     var b = CFG.bank || {};
     if (!b.verifiedOn || !b.accounts || !b.accounts.length) return;
-    var list = document.querySelector("#bank-verified .bank-list");
-    b.accounts.forEach(function (acc) {
-      var li = document.createElement("li");
-      var name = document.createElement("span"); name.textContent = acc.bank;
-      var num = document.createElement("code"); num.textContent = acc.number;
-      var btn = document.createElement("button");
-      btn.type = "button"; btn.textContent = t("bank.copy", "نسخ");
-      btn.setAttribute("aria-label", "نسخ رقم حساب " + acc.bank);
-      btn.addEventListener("click", function () {
-        try { navigator.clipboard.writeText(acc.number); btn.textContent = t("bank.copied", "تم النسخ"); } catch (e) { /* ignore */ }
-        track("bank_transfer_interaction", { action: "copy_account", bank: acc.bank });
+    // Works on any page: fills every bank list it finds (main page block or [data-bank-list]).
+    var lists = document.querySelectorAll("#bank-verified .bank-list, [data-bank-list]");
+    lists.forEach(function (list) {
+      list.innerHTML = "";
+      b.accounts.forEach(function (acc) {
+        var li = document.createElement("li");
+        var name = document.createElement("span"); name.textContent = (lang === "en" && acc.bankEn) ? acc.bankEn : acc.bank;
+        var num = document.createElement("code"); num.textContent = acc.number;
+        var btn = document.createElement("button");
+        btn.type = "button"; btn.textContent = t("bank.copy", "نسخ");
+        btn.setAttribute("aria-label", "نسخ رقم حساب " + acc.bank);
+        btn.addEventListener("click", function () {
+          try { navigator.clipboard.writeText(acc.number); btn.textContent = t("bank.copied", "تم النسخ"); } catch (e) { /* ignore */ }
+          track("bank_transfer_interaction", { action: "copy_account", bank: acc.bank });
+        });
+        li.appendChild(name); li.appendChild(num); li.appendChild(btn); list.appendChild(li);
       });
-      li.appendChild(name); li.appendChild(num); li.appendChild(btn); list.appendChild(li);
+      list.hidden = false;
     });
-    document.getElementById("bank-date").textContent = b.verifiedOn;
-    document.getElementById("bank-verified").hidden = false;
-    document.getElementById("bank-unverified").hidden = true;
+    var date = document.getElementById("bank-date"); if (date) date.textContent = b.verifiedOn;
+    var ok = document.getElementById("bank-verified"); if (ok) ok.hidden = false;
+    var no = document.getElementById("bank-unverified"); if (no) no.hidden = true;
   }
   function renderAwards() {
     var items = CFG.awards || [];
@@ -435,6 +439,9 @@
   if (qLang === "en" || qLang === "ar") save("bahjah_lang", lang);
   var langBtn = document.getElementById("lang-btn");
   if (langBtn) langBtn.addEventListener("click", function () { applyLang(lang === "en" ? "ar" : "en", true); });
+  document.querySelectorAll("[data-lang-toggle]").forEach(function (el) {
+    el.addEventListener("click", function (e) { e.preventDefault(); applyLang(lang === "en" ? "ar" : "en", true); window.scrollTo({ top: 0 }); });
+  });
   renderAwards();
   initVendors();
   if (window.fbq && T.metaPixelId) window.fbq("init", T.metaPixelId);

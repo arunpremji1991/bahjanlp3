@@ -84,6 +84,25 @@ def bust(m):
     return f'{attr}="{path}?v={digest}"'
 
 
+INCLUDE_RE = re.compile(r'<!--#include\s+(.*?)-->', re.S)
+
+
+def include(m):
+    """<!--#include file="partials/x.html" key="value" list_file="partials/y.html" -->
+    Shared partials keep the header, trust sections and footer identical on every page.
+    {{key}} placeholders are filled from the attributes; *_file attributes inline another file."""
+    attrs = dict(re.findall(r'(\w+)="([^"]*)"', m.group(1)))
+    html = (ROOT / "src" / attrs.pop("file")).read_text(encoding="utf-8")
+    for k, v in attrs.items():
+        if k.endswith("_file"):
+            k, v = k[:-5], (ROOT / "src" / v).read_text(encoding="utf-8").rstrip("\n")
+        html = html.replace("{{" + k + "}}", v)
+    left = re.findall(r"\{\{(\w+)\}\}", html)
+    if left:
+        raise SystemExit(f"unfilled placeholders {left} in {m.group(0)[:80]}")
+    return html.rstrip("\n")
+
+
 PAGES = [
     # (source, output, path prefix to the site root)
     (ROOT / "src/index.src.html", ROOT / "index.html", ""),
@@ -94,6 +113,7 @@ for src, out, prefix in PAGES:
     if not src.exists():
         continue
     html = src.read_text(encoding="utf-8")
+    html = INCLUDE_RE.sub(include, html)
     html = re.sub(r"<pic\b[^>]*/>", render, html)
     html = re.sub(r'(href|src)="(assets/(?:css|js)/[\w.-]+\.(?:css|js))"', bust, html)
     if prefix:

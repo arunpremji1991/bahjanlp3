@@ -50,6 +50,19 @@ Only the second step is needed after text or markup edits. Deploy the whole fold
 10. **FAQ:** accordion, plus a contact card.
 11. **Final CTA**, and a sticky CTA on mobile.
 
+## Shared UI across all Bahjah landing pages
+
+Every Bahjah landing page (orphan sponsorship, this giving page, «فك كربة») uses the same design system: the teal/sand palette, Alexandria headings with IBM Plex Sans Arabic body text, a header with language and WhatsApp buttons plus a CTA, centred section heads with gold kickers, and a dark teal footer. The shared blocks live in `src/partials/` and are included by `tools/build_html.py`:
+
+| Partial | What | Per-page values |
+|---|---|---|
+| `header.html` | logo, EN/عربي toggle, WhatsApp, header CTA | `cta_href`, `cta_key`, `cta_label` |
+| `why.html` | «لماذا بهجة؟»: facts + awards row | none |
+| `ground.html` | «بهجة على أرض الواقع»: activity photos + news links | none |
+| `footer.html` | address, contacts, official site, privacy, language, sources, disclaimer | `sources_key` + `sources_ar_file` (`partials/sources-*.html`) |
+
+Change a partial once, rebuild, and both pages update. Keep it in sync with the sponsorship page's equivalent sections.
+
 ## «فك كربة» page — `/fak-korba/`
 
 A single-purpose, immediate-donation page for Bahjah's «فك كربة» (hardship relief / debt settlement) initiative.
@@ -58,7 +71,7 @@ A single-purpose, immediate-donation page for Bahjah's «فك كربة» (hardsh
 
 - **Amounts:** 5 / 10 / 20 / 50 OMR plus a custom amount, one-time only (`config.fakKorba.amounts`, `defaultAmount`). The page cannot pre-fill the amount on the official payment page, so the CTA shows the amount and a note tells donors to enter it there.
 - **Case box and story:** fill `config.fakKorba.case` (`target`, `raised`, `updatedOn`, `story.ar` / `story.en`) with figures and an anonymised story approved by Bahjah, set `enabled: true`, then rebuild. While it's disabled, the page runs as a general «فك كربة» appeal. Never estimate these numbers.
-- **Destination:** `routes.hardship`. It currently points to the donation hub, with the Jood «فك كربة» initiative as the fallback. Paste the official «فك كربة» product URL there once confirmed.
+- **Destination:** `routes.hardship` → https://bahjah.org.om/wp/product/فك-كربة/ (official product page, verified 7 Oct 2026). The Jood initiative is the fallback.
 - **Tracking:** `select_amount` (value, preset or custom), and `cta_click` / `project_select` / `payment_page_visit` with `value` = the chosen amount. `donation_complete` only reports the value sent back by the payment page, plus `intended_amount`.
 - **SEO:** the Arabic title, description and headings target فك كربة عمان، تبرع عاجل، مساعدة أسرة محتاجة، تفريج كربة، تبرع الآن، صدقة. The English versions (`?lang=en`) target Emergency Donation Oman, Donate Now Oman, Urgent Charity Oman.
 - **Ad URLs:** `https://forestgreen-camel-125506.hostingersite.com/fak-korba/` for Arabic, and the same URL with `?lang=en` for English.

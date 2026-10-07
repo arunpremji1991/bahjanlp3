@@ -27,23 +27,24 @@ window.BAHJAH_CONFIG = {
     kafala:    { url: "https://bahjah.org.om/wp/product/برنامج-كفالة-يتيم/", fallback: "https://jood.om/ar/Donate/Initiative/3a0f60a4-f1f5-4102-8a44-b09c0000b09c" },
     // No dedicated product URL has been confirmed for these on bahjah.org.om — they route to the hub.
     // Paste the CURRENT product URL here once confirmed from the live site (do not guess slugs).
-    ramadan:   { url: "https://bahjah.org.om/wp/التبرعات/", fallback: "https://jood.om/ar/Donate/Initiative/5fa7fa49-6492-46ca-9ff9-b1170000b117" },
-    sadaqah:   { url: "https://bahjah.org.om/wp/التبرعات/", fallback: "https://jood.om/ar/Donate/Initiative/cdf254ac-ca46-4647-a193-b0a40000b0a4" },
-    meat:      { url: "https://bahjah.org.om/wp/التبرعات/", fallback: "https://jood.om/ar/Donate/Initiative/fbd635b1-8115-4766-8db9-b1290000b129" },
-    hardship:  { url: "https://bahjah.org.om/wp/التبرعات/", fallback: "https://jood.om/ar/Donate/Initiative/f91012f5-6a7d-4c9f-b7e8-b0a40000b0a4" },
-    renovation:{ url: "https://bahjah.org.om/wp/التبرعات/", fallback: "https://jood.om/ar/Donate/Initiative/264b804c-3680-4d63-bef2-b0a40000b0a4" },
-    water:     { url: "https://bahjah.org.om/wp/التبرعات/", fallback: null },
-    bills:     { url: "https://bahjah.org.om/wp/التبرعات/", fallback: null },
+    ramadan:   { url: "https://bahjah.org.om/wp/product/السلة-الرمضانية/", fallback: "https://jood.om/ar/Donate/Initiative/5fa7fa49-6492-46ca-9ff9-b1170000b117" },
+    sadaqah:   { url: "https://bahjah.org.om/wp/product/صدقة/", fallback: "https://jood.om/ar/Donate/Initiative/cdf254ac-ca46-4647-a193-b0a40000b0a4" },
+    meat:      { url: "https://bahjah.org.om/wp/product/الذبائح/", fallback: "https://jood.om/ar/Donate/Initiative/fbd635b1-8115-4766-8db9-b1290000b129" },
+    hardship:  { url: "https://bahjah.org.om/wp/product/فك-كربة/", fallback: "https://jood.om/ar/Donate/Initiative/f91012f5-6a7d-4c9f-b7e8-b0a40000b0a4" },
+    renovation:{ url: "https://bahjah.org.om/wp/product/بناء-و-ترميم/", fallback: "https://jood.om/ar/Donate/Initiative/264b804c-3680-4d63-bef2-b0a40000b0a4" },
+    water:     { url: "https://bahjah.org.om/wp/product/مياة-بهجة/", fallback: null },
+    bills:     { url: "https://bahjah.org.om/wp/product/سداد-فواتير/", fallback: null },
     forms:     { url: "https://bahjah.org.om/wp/الاستمارات/", fallback: null },
     contact:   { url: "https://bahjah.org.om/wp/تواصل/", fallback: null },
     media:     { url: "https://bahjah.org.om/wp/المركز-الاعلامي/", fallback: null },
     home:      { url: "https://bahjah.org.om/wp/", fallback: null },
+    privacy:   { url: "https://bahjah.org.om/wp/سياسة-الخصوصية/", fallback: null },
     // Official Zakat calculator. Leave empty until confirmed live — while empty the
     // "احسب زكاتك" button points to the official site (where the app and tools are listed).
     zakatCalculator: { url: "", fallback: null },
     // Official app store links. Leave empty until confirmed — the app card then points to the official site.
-    appIos:     { url: "", fallback: null },
-    appAndroid: { url: "", fallback: null }
+    appIos:     { url: "https://apps.apple.com/om/app/bahjah-association-for-orphans/id1574084411", fallback: null },
+    appAndroid: { url: "https://play.google.com/store/apps/details?id=om.digitalorbits.bahjah", fallback: null }
   },
 
   routing: {
@@ -118,14 +119,14 @@ window.BAHJAH_CONFIG = {
     },
     ramadan: {
       eyebrow: "مشروع السلة الرمضانية",
-      headline: "سلةٌ رمضانية تكفي أسرة يتيم معظم أيام الشهر",
-      sub: "مشروع سنوي تقدّمه جمعية بهجة لأسر الأيتام المسجلة لديها — 35 ر.ع للأسرة الواحدة.",
+      headline: "سلةٌ رمضانية تصل إلى أسر الأيتام",
+      sub: "مشروع سنوي تقدّمه جمعية بهجة لأسر الأيتام المسجلة لديها — قيمة السلة 15 ر.ع.",
       primary:   { label: "ساهم في السلة الرمضانية", route: "ramadan", category: "ramadan_basket" },
       secondary: { label: "اختر طريقة عطائك", href: "#choose" },
       sticky:    { label: "ساهم في السلة الرمضانية", route: "ramadan", category: "ramadan_basket" },
       final: {
         title: "شارك أسر الأيتام مائدة رمضان",
-        text: "35 ر.ع تكفي سلة أسرة مسجلة لمعظم أيام الشهر، بحسب الملف التعريفي للجمعية.",
+        text: "قيمة السلة 15 ر.ع في حملة رمضان 2026م / 1447هـ، بحسب إعلان الجمعية الرسمي.",
         primary:   { label: "ساهم في السلة الرمضانية", route: "ramadan", category: "ramadan_basket" },
         secondary: { label: "اختر نوع العطاء", href: "#choose" }
       },
@@ -135,10 +136,10 @@ window.BAHJAH_CONFIG = {
       docTitle: "السلة الرمضانية لأسر الأيتام | جمعية بهجة العمانية للأيتام",
       en: {
         eyebrow: "Ramadan Basket project",
-        headline: "A Ramadan basket that covers an orphan family for most of the month",
-        sub: "An annual project for the orphan families registered with Bahjah — OMR 35 per family.",
+        headline: "A Ramadan basket that reaches orphan families",
+        sub: "An annual project for the orphan families registered with Bahjah — OMR 15 per basket.",
         primary: "Contribute to the Ramadan Basket", secondary: "Choose how to give", sticky: "Contribute to the Ramadan Basket",
-        final: { title: "Share Ramadan's table with orphan families", text: "OMR 35 covers a registered family's basket for most of the month, according to the society's official profile.", primary: "Contribute to the Ramadan Basket", secondary: "Choose a giving type" },
+        final: { title: "Share Ramadan's table with orphan families", text: "The basket value is OMR 15 for the Ramadan 2026 / 1447 AH campaign, as announced by the society.", primary: "Contribute to the Ramadan Basket", secondary: "Choose a giving type" },
         docTitle: "Ramadan Basket for orphan families | Omani Bahjah Orphan Society"
       }
     },
@@ -197,7 +198,7 @@ window.BAHJAH_CONFIG = {
 
   /* Documented facts (see SOURCES.md). */
   facts: {
-    ramadanBasketOmr: 35,
+    ramadanBasketOmr: 15,   // official Ramadan 2026 / 1447 AH poster (bahjah.org.om, Feb 2026)
     kaffarat: { oath: 15, fastingDay: 1.5, fastingMonth: 45 }
   },
 
@@ -207,18 +208,18 @@ window.BAHJAH_CONFIG = {
    * contact/payment page.
    * ------------------------------------------------------------------ */
   bank: {
-    verifiedOn: "", // e.g. "2026-10-02" — set only after checking bahjah.org.om/wp/تواصل/
+    verifiedOn: "2026-10-07", // matches the official Ramadan 2026 poster published on bahjah.org.om
     accounts: [
-      { bank: "بنك مسقط", number: "0397000008880035" },
-      { bank: "بنك ظفار", number: "01041328888001" }
+      { bank: "بنك مسقط", bankEn: "Bank Muscat", number: "0397000008880035" },
+      { bank: "بنك ظفار", bankEn: "Bank Dhofar", number: "01041328888001" }
     ]
   },
 
   /* Contact details as published by Bahjah (Jood profile, checked 28 Sep 2026). Re-verify on /wp/تواصل/. */
   contact: {
-    phones: ["23289966", "91403312", "91403373"],
+    phones: ["92877577", "23289966"],   // official contact page, 7 Oct 2026
     email: "bahjah1.omani@gmail.com",
-    whatsapp: "", // international format without "+", e.g. "96891403312" — only once confirmed as Bahjah's WhatsApp line
+    whatsapp: "96892877577", // official site WhatsApp link (api.whatsapp.com/send?phone=96892877577)
     x: "https://x.com/bahjah1_omani"
   },
 

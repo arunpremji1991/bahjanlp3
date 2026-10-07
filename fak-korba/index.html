@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>فك كربة | تبرع عاجل لمساعدة أسرة محتاجة في عُمان — جمعية بهجة</title>
 <meta name="description" content="تبرع الآن لفك كربة أسرة محتاجة في عُمان عبر مشروع «فك كربة» في جمعية بهجة العمانية للأيتام. تبرع عاجل لتفريج كربة الأسر المحتاجة بالمبلغ الذي تختاره، والدفع عبر القنوات الرسمية للجمعية.">
-<meta name="theme-color" content="#F7F2E9">
+<meta name="theme-color" content="#0b3b33">
 <link rel="canonical" href="https://forestgreen-camel-125506.hostingersite.com/fak-korba/">
 
 <meta property="og:type" content="website">
@@ -28,8 +28,8 @@
 <link rel="icon" href="../assets/img/bahjah-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=02770a0bfb">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css?v=6167910f26">
 
 <script type="application/ld+json">
 {
@@ -46,7 +46,7 @@
 }
 </script>
 <script>document.documentElement.classList.add("js");</script>
-<script src="../assets/js/config.js?v=8a328378cf"></script>
+<script src="../assets/js/config.js?v=4c59ab718f"></script>
 </head>
 <body class="page-fk">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -66,6 +66,9 @@
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></symbol>
     <symbol id="i-scroll" viewBox="0 0 24 24"><path d="M7 4h11v13a3 3 0 0 1-3 3H6a2 2 0 0 1-2-2v-2h11v2a2 2 0 0 0 2 2M7 4a2 2 0 0 0-2 2v10M10 8h5M10 12h5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2-2 1z"/></symbol>
   </defs>
 </svg>
 
@@ -73,14 +76,15 @@
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="brand" href="../" data-cta="header_logo">
-      <img src="../assets/img/bahjah-logo.jpg" width="44" height="40" alt="شعار جمعية بهجة العمانية للأيتام" data-alt-en="Omani Bahjah Orphan Society logo">
-      <span data-i18n="brand">جمعية بهجة<span class="brand-long"> العمانية للأيتام</span></span>
+    <a class="brand" href="#top" data-cta="header_logo">
+      <img src="../assets/img/bahjah-logo.jpg" width="40" height="36" alt="شعار جمعية بهجة العمانية للأيتام" data-alt-en="Omani Bahjah Orphan Society logo">
+      <span class="brand-name" data-i18n="brand.full">جمعية بهجة العمانية للأيتام</span>
     </a>
-    <button type="button" class="lang-btn" id="lang-btn" aria-label="Switch to English">
-      <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-long" lang="en">English</span><span class="lang-short" lang="en">EN</span>
-    </button>
-    <a class="btn btn-sm btn-primary" href="#give" data-cta="header_give"><span data-i18n="fk.header.cta">ساهم الآن</span></a>
+    <div class="header-actions">
+      <button type="button" class="lang-btn" id="lang-btn" aria-label="Switch to English"><svg aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-label" lang="en">EN</span></button>
+      <a class="icon-btn" href="https://wa.me/96892877577" data-cta="header_whatsapp" aria-label="تواصل عبر واتساب" data-i18n-aria="wa.aria" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+      <a class="btn btn-primary btn-sm header-cta" href="#give" data-cta="header_cta"><span data-i18n="fk.header.cta">ساهم الآن</span></a>
+    </div>
   </div>
 </header>
 
@@ -196,31 +200,38 @@
     </div>
   </section>
 
-  <!-- ============ WHY BAHJAH + SECURE PAYMENT ============ -->
-  <section class="section fk-why" aria-labelledby="fk-why-title">
-    <div class="wrap">
-      <div class="fk-why-card reveal">
-        <figure class="fk-why-photo">
-          <!-- image source: https://jood.om/en/Files/Image/4d595cfc-cf92-4de0-bafc-b1800000b180 -->
-          <picture>
-            <source type="image/avif" srcset="../assets/img/opt/bahjah-kids-345.avif 345w" sizes="(min-width: 900px) 340px, 100vw">
-            <source type="image/webp" srcset="../assets/img/opt/bahjah-kids-345.webp 345w" sizes="(min-width: 900px) 340px, 100vw">
-            <img src="../assets/img/opt/bahjah-kids-345.jpg" width="345" height="300" alt="أطفال يرسمون في نشاط لجمعية بهجة" data-alt-en="Children drawing at a Bahjah activity" loading="lazy" decoding="async" data-source="https://jood.om/en/Files/Image/4d595cfc-cf92-4de0-bafc-b1800000b180">
-          </picture>
-          <figcaption data-i18n="trust.caption">من أنشطة جمعية بهجة</figcaption>
-        </figure>
-        <div class="fk-why-body">
-          <h2 id="fk-why-title" data-i18n="fk.why.title">لماذا بهجة؟</h2>
-          <p class="lede" data-i18n="fk.why.lede">لأن عطاءك يستحق جهة رسمية موثوقة.</p>
-          <ul class="fk-why-grid" role="list">
-            <li><span class="fk-why-ico"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span><b>2014</b><span data-i18n="fk.why.1">سنة التأسيس</span></li>
-            <li><span class="fk-why-ico"><svg aria-hidden="true"><use href="#i-scroll"/></svg></span><b dir="ltr">14/2000</b><span data-i18n="fk.why.2">المرسوم السلطاني</span></li>
-            <li><span class="fk-why-ico"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><b data-i18n="fk.why.3t">رسمية</b><span data-i18n="fk.why.3">تحت مظلة وزارة التنمية الاجتماعية</span></li>
-            <li><span class="fk-why-ico"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><b data-i18n="fk.why.4t">منصة جود</b><span data-i18n="fk.why.4">مبادراتها مدرجة على المنصة الحكومية</span></li>
-          </ul>
-        </div>
+  <!-- ============ WHY BAHJAH (shared across all Bahjah landing pages) ============ -->
+<section id="why" class="section section-sand" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="section-head reveal">
+        <span class="kicker" data-i18n="why.kicker">لماذا بهجة؟</span>
+        <h2 id="why-title" data-i18n="why.title">جمعية لرعاية الأيتام في عُمان منذ 2014</h2>
+        <p data-i18n="why.text">جمعية خيرية غير حكومية تأسست بالمرسوم السلطاني رقم 14/2000، ترعى الأيتام داخل منازلهم وخارجها، وتعمل تحت مظلة وزارة التنمية الاجتماعية.</p>
       </div>
+      <ul class="facts reveal" role="list">
+        <li class="fact"><svg class="fact-ico" aria-hidden="true"><use href="#i-calendar"/></svg><b>2014</b><span data-i18n="why.f1">سنة التأسيس</span></li>
+        <li class="fact"><svg class="fact-ico" aria-hidden="true"><use href="#i-scroll"/></svg><b dir="ltr">14/2000</b><span data-i18n="why.f2">المرسوم السلطاني</span></li>
+        <li class="fact"><svg class="fact-ico" aria-hidden="true"><use href="#i-shield"/></svg><b>ISO</b><span data-i18n="why.f3">شهادة الأيزو</span><small>2023</small></li>
+        <li class="fact"><svg class="fact-ico" aria-hidden="true"><use href="#i-award"/></svg><b>7</b><span data-i18n="why.f4">جوائز وتكريمات</span><small>2013 – 2024</small></li>
+      </ul>
+    </div>
+    <ul class="awards reveal" aria-label="جوائز وشهادات الجمعية" data-i18n-aria="why.awards.aria" role="list">
+      <li><img src="../assets/img/shared/awards/qaboos.webp" alt="جائزة السلطان قابوس للعمل التطوعي 2013" data-alt-en="Sultan Qaboos Award for Voluntary Work, 2013" width="64" height="64" loading="lazy"></li>
+      <li><img src="../assets/img/shared/awards/iso.webp" alt="شهادة الأيزو 2023" data-alt-en="ISO certificate, 2023" width="64" height="64" loading="lazy"></li>
+      <li><img src="../assets/img/shared/awards/alissa.webp" alt="جائزة خالد العيسى الصالح 2024" data-alt-en="Khalid Al-Essa Al-Saleh Award, 2024" width="64" height="64" loading="lazy"></li>
+      <li><img src="../assets/img/shared/awards/salam.webp" alt="جائزة المؤسسة الدولية المتميزة في الابتكار الاجتماعي 2023" data-alt-en="Distinguished International Institution Award for Social Innovation, 2023" width="64" height="47" loading="lazy"></li>
+      <li><img src="../assets/img/shared/awards/oq.webp" alt="المركز الأول على مستوى السلطنة في مستوى أوكيو 2020" data-alt-en="First place in the Sultanate at the OQ level, 2020" width="64" height="40" loading="lazy"></li>
+      <li><img src="../assets/img/shared/awards/ohrc.webp" alt="تكريم لجنة حقوق الإنسان 2019" data-alt-en="Honoured by the Human Rights Commission, 2019" width="64" height="58" loading="lazy"></li>
+      <li><img src="../assets/img/shared/awards/sanabel.webp" alt="جائزة السنابل للتميز الخدمي 2016" data-alt-en="Al Sanabel Award for Service Excellence, 2016" width="64" height="64" loading="lazy"></li>
+    </ul>
+    <p class="awards-note" data-i18n="why.note">الجوائز والشهادات كما تعرضها الجمعية على موقعها الرسمي، مع سنواتها.</p>
+  </div>
+</section>
 
+  <!-- ============ SECURE PAYMENT + WHERE IT GOES ============ -->
+  <section class="section fk-paysec" aria-label="طرق الدفع وأين يذهب التبرع" data-i18n-aria="fk.pay.aria">
+    <div class="wrap">
       <div class="fk-pay-grid">
         <div class="fk-pay reveal">
           <h3><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n="fk.pay.title">طرق دفع آمنة</span></h3>
@@ -228,7 +239,8 @@
           <ul class="pay-list fk-pay-list" role="list">
             <li><svg aria-hidden="true"><use href="#i-card"/></svg><span data-i18n="fk.pay.card">بطاقات الائتمان والخصم عبر SmartPay من بنك مسقط</span></li>
             <li><svg aria-hidden="true"><use href="#i-app"/></svg><span data-i18n="pay.app">تطبيق بهجة الرسمي</span></li>
-            <li><svg aria-hidden="true"><use href="#i-bank"/></svg><span data-i18n="fk.pay.bank">تحويل بنكي — تحقّق من الحسابات عبر <a href="https://bahjah.org.om/wp/تواصل/" data-route="contact" data-cta="fk_bank_verify" data-event="bank_transfer_interaction">صفحة التواصل</a></span></li>
+            <li class="fk-bank-item"><svg aria-hidden="true"><use href="#i-bank"/></svg><span><span data-i18n="fk.pay.bank2">تحويل بنكي إلى حسابات الجمعية، ثم أشعر الجمعية بعد الإيداع:</span>
+              <ul class="bank-list fk-bank-list" data-bank-list hidden></ul></span></li>
           </ul>
         </div>
         <div class="fk-pay fk-where reveal">
@@ -239,6 +251,25 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ BAHJAH ON THE GROUND (shared across all Bahjah landing pages) ============ -->
+<section id="ground" class="section" aria-labelledby="ground-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="ground.kicker">بهجة على أرض الواقع</span>
+      <h2 id="ground-title" data-i18n="ground.title">أنشطة وشراكات تخدم الأيتام</h2>
+    </div>
+    <ul class="gallery reveal" aria-label="صور من أنشطة الجمعية" data-i18n-aria="ground.aria" role="list">
+      <li><figure><img src="../assets/img/shared/program-education.webp" alt="طلاب مدارس في إحدى فعاليات جمعية بهجة" data-alt-en="School students at a Bahjah Society event" width="689" height="382" loading="lazy"><figcaption data-i18n="ground.c1">فعالية تعليمية للأطفال</figcaption></figure></li>
+      <li><figure><img src="../assets/img/shared/program-aid-supplies.webp" alt="مساعدات عينية أمام مبنى جمعية بهجة العمانية للأيتام" data-alt-en="In-kind aid outside the Omani Bahjah Orphan Society building" width="346" height="201" loading="lazy"><figcaption data-i18n="ground.c2">مساعدات عينية أمام مقر الجمعية</figcaption></figure></li>
+      <li><figure><img src="../assets/img/shared/photo-signing.webp" alt="توقيع اتفاقية تمويل جمعيات أهلية" data-alt-en="Signing of funding agreements for civil associations" width="691" height="384" loading="lazy"><figcaption data-i18n="ground.c3">توقيع اتفاقيات تمويل — مارس 2021</figcaption></figure></li>
+    </ul>
+    <ul class="news-links reveal" role="list">
+      <li><a href="https://bahjah.org.om/wp/%d8%aa%d9%88%d9%82%d9%8a%d8%b9-%d8%a7%d8%aa%d9%81%d8%a7%d9%82%d9%8a%d8%a9-%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%d9%84%d9%83%d9%81%d8%a7%d9%84%d8%a9-%d8%a7%d9%84%d8%a3%d9%8a%d8%aa%d8%a7%d9%85-%d8%a8%d9%8a/" target="_blank" rel="noopener" data-cta="news_jazer"><span><time datetime="2026-02-04" data-i18n="ground.n1.date">4 فبراير 2026</time><b data-i18n="ground.n1">اتفاقية تعاون لكفالة الأيتام مع والي ولاية الجازر</b></span><svg class="arr" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+      <li><a href="https://bahjah.org.om/wp/%d8%a5%d8%a8%d8%b1%d8%a7%d9%85-%d8%a7%d8%aa%d9%81%d8%a7%d9%82%d9%8a%d8%a9-%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%d9%88%d8%b4%d8%b1%d8%a7%d9%83%d8%a9-%d8%a8%d9%8a%d9%86-%d8%a8%d9%87%d8%ac%d8%a9-%d8%a7%d9%84/" target="_blank" rel="noopener" data-cta="news_sadah"><span><time datetime="2026-02-11" data-i18n="ground.n2.date">11 فبراير 2026</time><b data-i18n="ground.n2">اتفاقية تعاون وشراكة بين بهجة وولاية سدح</b></span><svg class="arr" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+    </ul>
+  </div>
+</section>
 
   <!-- ============ FINAL ============ -->
   <section id="final" class="final fk-final" aria-labelledby="fk-final-title">
@@ -265,16 +296,30 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="../assets/img/bahjah-logo.jpg" width="64" height="58" alt="" loading="lazy">
-      <p data-i18n="footer.brand"><strong>جمعية بهجة العمانية للأيتام</strong><br><span class="muted">Omani Bahjah Orphan Society</span></p>
+      <img src="../assets/img/bahjah-logo.jpg" alt="" width="40" height="36" loading="lazy">
+      <p data-i18n="footer.address"><b>جمعية بهجة العمانية للأيتام</b><br>ظفار – صلالة الشرقية – شارع 23 يوليو – بجانب بنك ظفار</p>
     </div>
-    <nav aria-label="روابط رسمية" data-i18n-aria="footer.aria" class="footer-nav">
-      <a href="https://bahjah.org.om/wp/" data-route="home" data-cta="footer" data-i18n="footer.site">الموقع الرسمي</a>
-      <a href="../" data-cta="footer" data-i18n="fk.footer.ways">أبواب العطاء</a>
-      <a href="https://bahjah.org.om/wp/تواصل/" data-route="contact" data-cta="footer" data-i18n="footer.contact">تواصل</a>
-      <a href="tel:+96823289966" data-cta="contact_phone" dir="ltr">23289966</a>
-    </nav>
-    <p class="footer-note" data-i18n="fk.footer.note">جميع التبرعات تتم عبر صفحات الدفع الرسمية للجمعية. الصور المعلَّمة «صورة تعبيرية» من <a href="https://www.pexels.com/license/">Pexels</a> ولا تمثّل أشخاصاً بعينهم، ومصدر كل صورة مذكور في الشيفرة.</p>
+    <p class="footer-links">
+      <a href="tel:+96892877577" dir="ltr" data-cta="contact_phone">92877577</a>
+      <a href="tel:+96823289966" dir="ltr" data-cta="contact_phone">23289966</a>
+      <a href="mailto:bahjah1.omani@gmail.com" dir="ltr" data-cta="contact_email">bahjah1.omani@gmail.com</a>
+      <a href="https://bahjah.org.om/wp/" data-route="home" target="_blank" rel="noopener" data-cta="footer" data-i18n="footer.official">الموقع الرسمي</a>
+      <a href="https://bahjah.org.om/wp/سياسة-الخصوصية/" data-route="privacy" target="_blank" rel="noopener" data-cta="footer" data-i18n="footer.privacy">سياسة الخصوصية</a>
+      <a href="#" data-lang-toggle lang="en" data-i18n="footer.lang">English</a>
+    </p>
+    <details class="sources">
+      <summary data-i18n="footer.sources">مصادر المحتوى والصور</summary>
+      <ul data-i18n="footer.sources.fk">
+        <li>bahjah.org.om/wp/product/فك-كربة/ — صفحة التبرع لمشروع «فك كربة»</li>
+        <li>jood.om — مبادرة «فك كربة» (المساعدات النقدية – سداد دين)</li>
+        <li>bahjah.org.om/wp/ — التعريف، تاريخ التأسيس، الجوائز، بيانات التواصل</li>
+        <li>bahjah.org.om/wp/الاسئلة-الشائعة/ — طرق الدفع (بوابة بنك مسقط SmartPay)</li>
+        <li>bahjah.org.om/wp/المركز-الاعلامي/ — الأخبار</li>
+        <li>الملف التعريفي للجمعية (CV-Print-Proof.pdf) — التأسيس، شهادة الأيزو، صور الأنشطة</li>
+        <li>الصور التعبيرية من Pexels — صور ظلية لا تمثّل أشخاصاً بعينهم، ومصدر كل صورة مذكور في الشيفرة</li>
+      </ul>
+    </details>
+    <p class="copy" data-i18n="footer.copy">صفحة هبوط توجّه الزوار إلى قنوات التبرع الرسمية للجمعية، ولا تُجري أي عملية دفع أو تخزّن بيانات مالية.</p>
   </div>
 </footer>
 
@@ -282,8 +327,8 @@
   <a class="btn btn-primary btn-block" href="https://bahjah.org.om/wp/التبرعات/" data-route="hardship" data-category="hardship_relief" data-cta="sticky" data-fk-cta tabindex="-1"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="fk-cta-label">ساهم الآن · 10 ر.ع</span></a>
 </div>
 
-<script src="../assets/js/i18n.js?v=8001c29a94" defer></script>
-<script src="../assets/js/app.js?v=cb61964c67" defer></script>
+<script src="../assets/js/i18n.js?v=39b96d3c41" defer></script>
+<script src="../assets/js/app.js?v=da23520ea7" defer></script>
 <script src="../assets/js/fak-korba.js?v=be3b2fac64" defer></script>
 </body>
 </html>

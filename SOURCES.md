@@ -81,3 +81,21 @@ Put the original in `assets/img/src/`, add a job to `tools/optimize_images.py`, 
 Not used from the reference design because they don't come from Bahjah sources: "+50,000 beneficiaries",
 "+15 years" (Bahjah was founded in 2014), "periodic reports", the Visa/Mastercard/Apple Pay/mada logos and the
 monthly-donation option.
+
+## Update 7 Oct 2026: bahjah.org.om reachable, facts re-checked
+
+| Item | Finding on the official site | Change made |
+|---|---|---|
+| Ramadan basket | Official «السلة الرمضانية 2026م / 1447هـ» poster: **قيمة السلة 15 ريال** | **35 → 15 OMR** everywhere. Removed "covers most of the month" (not in the profile or the poster). The profile says the basket is distributed yearly to registered families "to meet their needs" |
+| Kaffarat | Product page: يمين 15، يوم صيام 1.5، شهر رمضان 45 | ✅ unchanged |
+| Zakat | Product page: «تبرع بزكاة مالك للأيتام المسجلين في بهجة الأيتام» | ✅ unchanged |
+| Card payments | FAQ: «نقبل بطاقات الائتمان والخصم عبر بوابة بنك مسقط SmartPay» | ✅ unchanged |
+| Product URLs | Donations hub lists /product/ pages for السلة-الرمضانية، صدقة، فك-كربة، الذبائح، مياة-بهجة، سداد-فواتير، بناء-و-ترميم، كفارات، الزكاة، برنامج-كفالة-يتيم | All routes now go to their own product page |
+| Contact | Contact page: 92877577 – 23289966, bahjah1.omani@gmail.com. WhatsApp link: 96892877577 | Phones and WhatsApp switched to the official numbers (the Jood numbers were dropped) |
+| App | App Store id1574084411; Google Play om.digitalorbits.bahjah | App buttons enabled |
+| Bank accounts | Same 2026 poster: Bank Muscat 0397000008880035, Bank Dhofar 01041328888001 | `bank.verifiedOn = 2026-10-07`, so the accounts are now shown |
+| Founding / decree / ISO | Profile: established 10/2/2014, Royal Decree 14/2000, ISO 2023 | ✅ |
+| Awards row (7 logos) | Award logos shown on the official home page | Reused the processed logos from the orphan-sponsorship landing page (`assets/img/shared/awards/`) |
+| "Bahjah on the ground" | News posts (Al Jazer agreement 4 Feb 2026, Sadah agreement 11 Feb 2026) linked from the official home page; activity photos from the profile | Reused the same photos and links as the sponsorship page (`assets/img/shared/`) |
+| Address in footer | Not found in the official pages' text (it may be in a map or image) | Kept the sponsorship page's wording so all footers match. **⚠ Confirm** |
+| "1,361 registered orphans (Dec 2023)" on the sponsorship page | The profile's statistics tables don't extract cleanly enough to tie the number to 2023 | **Not used here.** That tile shows Royal Decree 14/2000 instead. Re-check it on the sponsorship page |

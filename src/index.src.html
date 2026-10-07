@@ -27,7 +27,7 @@
 <link rel="icon" href="assets/img/bahjah-logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <script type="application/ld+json">
@@ -76,29 +76,17 @@
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><path d="M6 11h12v10H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15V4h11"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-scroll" viewBox="0 0 24 24"><path d="M7 4h11v13a3 3 0 0 1-3 3H6a2 2 0 0 1-2-2v-2h11v2a2 2 0 0 0 2 2M7 4a2 2 0 0 0-2 2v10M10 8h5M10 12h5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2-2 1z"/></symbol>
   </defs>
 </svg>
 
 <a class="skip" href="#main" data-i18n="skip">تخطَّ إلى المحتوى</a>
 
-<header class="site-header" id="top">
-  <div class="wrap header-inner">
-    <a class="brand" href="https://bahjah.org.om/wp/" data-route="home" data-cta="header_logo">
-      <img src="assets/img/bahjah-logo.jpg" width="44" height="40" alt="شعار جمعية بهجة العمانية للأيتام" data-alt-en="Omani Bahjah Orphan Society logo">
-      <span data-i18n="brand">جمعية بهجة<span class="brand-long"> العمانية للأيتام</span></span>
-    </a>
-    <nav class="header-nav" aria-label="أقسام الصفحة" data-i18n-aria="nav.aria">
-      <a href="#zakat" data-i18n="nav.zakat">الزكاة</a>
-      <a href="#ramadan" data-i18n="nav.ramadan">السلة الرمضانية</a>
-      <a href="#kaffarat" data-i18n="nav.kaffarat">الكفارات</a>
-      <a href="#faq" data-i18n="nav.faq">أسئلة شائعة</a>
-    </nav>
-    <button type="button" class="lang-btn" id="lang-btn" aria-label="Switch to English">
-      <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-long" lang="en">English</span><span class="lang-short" lang="en">EN</span>
-    </button>
-    <a class="btn btn-sm btn-dark" href="#choose" data-cta="header_choose" data-i18n="header.cta">تبرع الآن</a>
-  </div>
-</header>
+<!--#include file="partials/header.html" brand_href="#top" cta_href="#choose" cta_key="header.cta" cta_label="تبرع الآن" -->
 
 <main id="main">
 
@@ -136,7 +124,7 @@
               <svg class="fl-go arr" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
             <li><a href="https://bahjah.org.om/wp/التبرعات/" data-route="ramadan" data-category="ramadan_basket" data-cta="hero_card">
               <span class="fi"><svg aria-hidden="true"><use href="#i-moon"/></svg></span>
-              <span class="fl-body"><strong data-i18n="nav.ramadan">السلة الرمضانية</strong><small data-i18n="float.ramadan.sub">35 ر.ع للأسرة</small></span>
+              <span class="fl-body"><strong data-i18n="nav.ramadan">السلة الرمضانية</strong><small data-i18n="float.ramadan.sub">قيمة السلة 15 ر.ع</small></span>
               <svg class="fl-go arr" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
             <li><a href="https://bahjah.org.om/wp/product/كفارات/" data-route="kaffarat" data-category="kaffarat" data-cta="hero_card">
               <span class="fi"><svg aria-hidden="true"><use href="#i-bowl"/></svg></span>
@@ -181,7 +169,7 @@
               <span class="pick-no" aria-hidden="true"></span>
               <strong class="pick-title" data-i18n="nav.ramadan">السلة الرمضانية</strong>
               <span class="pick-text" data-i18n="pick.ramadan.text">سلة غذائية لأسر الأيتام المسجلة.</span>
-              <span class="pick-amt" data-i18n="pick.ramadan.amt"><b>35</b> ر.ع للأسرة</span>
+              <span class="pick-amt" data-i18n="pick.ramadan.amt"><b>15</b> ر.ع للسلة</span>
               <span class="pick-cta"><span data-i18n="pick.ramadan.cta">ساهم في السلة</span><svg class="ico arr" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </span>
           </a>
@@ -266,12 +254,12 @@
         <div class="ramadan-panel reveal">
           <p class="kicker"><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg><span data-i18n="ramadan.kicker">مشروع موسمي</span></p>
           <h2 id="ramadan-title" data-i18n="nav.ramadan">السلة الرمضانية</h2>
-          <p data-i18n="ramadan.text">مشروع سنوي تقدّم فيه الجمعية سلة غذائية لأسر الأيتام المسجلة لديها، توزّع مرة واحدة في شهر رمضان المبارك على أسر الأيتام في مختلف ولايات المحافظة، وتكفي معظم أيام الشهر.</p>
+          <p data-i18n="ramadan.text">مشروع سنوي تقدّم فيه الجمعية سلة غذائية لأسر الأيتام المسجلة لديها لتلبي احتياجاتهم، توزّع مرة واحدة في شهر رمضان المبارك على أسر الأيتام في مختلف ولايات المحافظة.</p>
           <div class="big-amt">
-            <span class="big-num">35</span>
-            <span class="big-unit" data-i18n="ramadan.unit">ر.ع<small>للأسرة المسجلة الواحدة</small></span>
+            <span class="big-num">15</span>
+            <span class="big-unit" data-i18n="ramadan.unit">ر.ع<small>قيمة السلة الواحدة</small></span>
           </div>
-          <p class="source-note" data-i18n="ramadan.source">بحسب الملف التعريفي الرسمي للجمعية.</p>
+          <p class="source-note" data-i18n="ramadan.source">قيمة السلة في حملة رمضان 2026م / 1447هـ، بحسب إعلان الجمعية الرسمي.</p>
           <a class="btn btn-primary btn-lg" href="https://bahjah.org.om/wp/التبرعات/" data-route="ramadan" data-category="ramadan_basket" data-cta="ramadan_section"><span data-i18n="ramadan.cta">ساهم في السلة الرمضانية</span><svg class="ico arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <figure class="ramadan-inset reveal">
@@ -372,27 +360,9 @@
     </div>
   </section>
 
-  <!-- ============ 8. TRUST ============ -->
-  <section id="trust" class="section trust" aria-labelledby="trust-title">
-    <div class="wrap trust-grid">
-      <div class="trust-intro reveal">
-        <p class="kicker"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span data-i18n="trust.kicker">عن الجمعية</span></p>
-        <h2 id="trust-title" data-i18n="trust.title">عطاءٌ موثوق</h2>
-        <figure class="trust-photo">
-          <pic name="bahjah-kids" sizes="(min-width: 900px) 340px, 100vw" alt="أطفال يرسمون في نشاط لجمعية بهجة" alten="Children drawing at a Bahjah activity" credit="https://jood.om/en/Files/Image/4d595cfc-cf92-4de0-bafc-b1800000b180" />
-          <figcaption data-i18n="trust.caption">من أنشطة جمعية بهجة</figcaption>
-        </figure>
-      </div>
-      <ol class="timeline reveal" role="list">
-        <li><span class="tl-k" data-i18n="tl.founded">التأسيس</span><span class="tl-v" data-i18n="tl.founded.v">10 فبراير 2014</span></li>
-        <li><span class="tl-k" data-i18n="tl.legal">السند النظامي</span><span class="tl-v" data-i18n="tl.legal.v">المرسوم السلطاني رقم 14/2000</span></li>
-        <li><span class="tl-k" data-i18n="tl.super">الإشراف</span><span class="tl-v" data-i18n="tl.super.v">تعمل تحت مظلة وزارة التنمية الاجتماعية</span></li>
-        <li><span class="tl-k" data-i18n="tl.scope">نطاق الخدمة</span><span class="tl-v" data-i18n="tl.scope.v">الأيتام والأرامل في ولايات محافظة ظفار</span></li>
-        <li><span class="tl-k" data-i18n="tl.jood">منصة جود</span><span class="tl-v" data-i18n="tl.jood.v">مبادرات الجمعية مدرجة أيضاً على <a href="https://jood.om/ar/Board/CharityProfile/about/8659" data-cta="trust_jood">منصة جود</a> التابعة لوزارة التنمية الاجتماعية.</span></li>
-      </ol>
-      <ul class="awards" id="awards" role="list" hidden></ul>
-    </div>
+  <!--#include file="partials/why.html" -->
 
+  <section class="section pay-section" aria-label="قنوات الدفع الرسمية" data-i18n-aria="pay.aria">
     <div class="wrap">
       <div class="pay-trust reveal" aria-labelledby="pay-trust-title">
         <div class="pay-trust-head">
@@ -411,6 +381,8 @@
       </div>
     </div>
   </section>
+
+  <!--#include file="partials/ground.html" -->
 
   <!-- ============ 9. THREE WAYS TO GIVE ============ -->
   <section id="how" class="section how" aria-labelledby="how-title">
@@ -459,9 +431,8 @@
         <div class="contact-card" id="contact">
           <p class="cc-title" data-i18n="contact.title">تواصل مع جمعية بهجة</p>
           <ul class="cc-list" role="list">
+            <li><a href="tel:+96892877577" data-cta="contact_phone"><svg aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">92877577</span></a></li>
             <li><a href="tel:+96823289966" data-cta="contact_phone"><svg aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">23289966</span></a></li>
-            <li><a href="tel:+96891403312" data-cta="contact_phone"><svg aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">91403312</span></a></li>
-            <li><a href="tel:+96891403373" data-cta="contact_phone"><svg aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">91403373</span></a></li>
             <li><a href="mailto:bahjah1.omani@gmail.com" data-cta="contact_email"><svg aria-hidden="true"><use href="#i-mail"/></svg><span dir="ltr">bahjah1.omani@gmail.com</span></a></li>
             <li data-whatsapp hidden><a href="#" data-cta="contact_whatsapp"><svg aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="contact.whatsapp">واتساب</span></a></li>
           </ul>
@@ -475,7 +446,7 @@
         </details>
         <details>
           <summary data-i18n="faq.q2">كم تبلغ السلة الرمضانية؟</summary>
-          <div class="faq-a"><p data-i18n="faq.a2">35 ر.ع للأسرة المسجلة الواحدة، بحسب الملف التعريفي الرسمي للجمعية. وهي مشروع سنوي يكفي معظم أيام شهر رمضان.</p></div>
+          <div class="faq-a"><p data-i18n="faq.a2">قيمة السلة 15 ر.ع في حملة رمضان 2026م / 1447هـ، بحسب إعلان الجمعية الرسمي. وهي مشروع سنوي توزّع فيه السلة على أسر الأيتام المسجلة لدى الجمعية.</p></div>
         </details>
         <details>
           <summary data-i18n="faq.q3">ما مبالغ الكفارات؟</summary>
@@ -495,7 +466,7 @@
         </details>
         <details>
           <summary data-i18n="faq.q7">كيف أتواصل مع جمعية بهجة؟</summary>
-          <div class="faq-a"><p data-i18n="faq.a7">عبر الهاتف: <a href="tel:+96823289966" dir="ltr" data-cta="faq_phone">23289966</a> · <a href="tel:+96891403312" dir="ltr" data-cta="faq_phone">91403312</a> · <a href="tel:+96891403373" dir="ltr" data-cta="faq_phone">91403373</a>، أو البريد الإلكتروني <a href="mailto:bahjah1.omani@gmail.com" dir="ltr" data-cta="faq_email">bahjah1.omani@gmail.com</a>، أو <a href="https://bahjah.org.om/wp/تواصل/" data-route="contact" data-cta="faq" data-i18n="contact.page">صفحة التواصل الرسمية</a>.</p></div>
+          <div class="faq-a"><p data-i18n="faq.a7">عبر الهاتف: <a href="tel:+96892877577" dir="ltr" data-cta="faq_phone">92877577</a> · <a href="tel:+96823289966" dir="ltr" data-cta="faq_phone">23289966</a>، أو واتساب <a href="https://wa.me/96892877577" dir="ltr" data-cta="contact_whatsapp">92877577</a>، أو البريد الإلكتروني <a href="mailto:bahjah1.omani@gmail.com" dir="ltr" data-cta="faq_email">bahjah1.omani@gmail.com</a>، أو <a href="https://bahjah.org.om/wp/تواصل/" data-route="contact" data-cta="faq" data-i18n="contact.page">صفحة التواصل الرسمية</a>.</p></div>
         </details>
       </div>
     </div>
@@ -518,23 +489,7 @@
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <img src="assets/img/bahjah-logo.jpg" width="64" height="58" alt="" loading="lazy">
-      <p data-i18n="footer.brand"><strong>جمعية بهجة العمانية للأيتام</strong><br><span class="muted">Omani Bahjah Orphan Society</span></p>
-    </div>
-    <nav aria-label="روابط رسمية" data-i18n-aria="footer.aria" class="footer-nav">
-      <a href="https://bahjah.org.om/wp/" data-route="home" data-cta="footer" data-i18n="footer.site">الموقع الرسمي</a>
-      <a href="https://bahjah.org.om/wp/التبرعات/" data-route="hub" data-cta="footer" data-i18n="footer.donations">التبرعات</a>
-      <a href="https://bahjah.org.om/wp/المركز-الاعلامي/" data-route="media" data-cta="footer" data-i18n="footer.media">المركز الإعلامي</a>
-      <a href="https://bahjah.org.om/wp/الاستمارات/" data-route="forms" data-cta="footer" data-i18n="footer.forms">الاستمارات</a>
-      <a href="https://bahjah.org.om/wp/تواصل/" data-route="contact" data-cta="footer" data-i18n="footer.contact">تواصل</a>
-      <a href="https://x.com/bahjah1_omani" data-cta="footer_x">X</a>
-    </nav>
-    <p class="footer-note" data-i18n="footer.note">جميع التبرعات تتم عبر صفحات الدفع الرسمية للجمعية. الصور التعبيرية من <a href="https://www.pexels.com/license/">Pexels</a> (مجانية الاستخدام)، ومصدر كل صورة مذكور في الشيفرة.</p>
-  </div>
-</footer>
+<!--#include file="partials/footer.html" sources_key="footer.sources.main" sources_ar_file="partials/sources-main.html" -->
 
 <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
   <a class="btn btn-primary btn-block" href="#choose" data-cta="sticky" data-campaign-cta="sticky" tabindex="-1">اختر طريقة عطائك</a>
