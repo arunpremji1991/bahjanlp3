@@ -110,3 +110,10 @@ monthly-donation option.
 English mode shows the Arabic text unchanged plus an English meaning marked "(meaning)". No other verses or hadith are quoted.
 
 The orphan-sponsorship section photo (`assets/img/shared/photo-outing.webp`) comes from the Society profile's activity photos, via the sponsorship landing page.
+
+## Religious texts on the «فك كربة» page (added 8 Oct 2026)
+
+| Text | Exact wording used | Verified against |
+|---|---|---|
+| Hadith (excerpt; the omitted middle part is marked with …) | «مَن نفَّس عن مؤمنٍ كُربةً من كُرَب الدنيا، نفَّس اللهُ عنه كُربةً من كُرَب يوم القيامة، ومَن يسَّر على مُعسِر، يسَّر اللهُ عليه في الدنيا والآخرة… واللهُ في عون العبد ما كان العبدُ في عون أخيه» — رواه مسلم (2699) | Sahih Muslim 2699 (Abu Hurayrah): alukah.net; dorar.net |
+| Quran, Ash-Sharh 94:5 | ﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا﴾ [الشرح: 5] | quran.com/ash-sharh/5; quran.ksu.edu.sa (Tafsir Ibn Kathir 94:5) |

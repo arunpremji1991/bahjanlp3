@@ -819,3 +819,9 @@ p, li, figcaption, small { text-wrap: pretty; }
 .ayah-meaning:empty { display: none; }
 .ayah .orn { font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Geeza Pro", "Arial", serif; font-weight: 400; color: var(--gold-ink); padding-inline: 4px; }
 @media (min-width: 900px) { .hero-copy h1 { font-size: clamp(2.6rem, 3.7vw, 3.6rem); } }
+/* Fak Korba content additions */
+.fk-whisper { margin: -10px 0 20px; font: 600 1.08rem/1.7 var(--font-display); color: #f3e3b8; }
+.hadith-center { margin-inline: auto; max-width: 680px; text-align: center; }
+.final-ayah { margin: 0 0 10px; font: 700 clamp(1.3rem, 5vw, 1.7rem)/1.8 var(--font-display); color: #f3e3b8 !important; }
+.final-ayah .orn { font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Geeza Pro", "Arial", serif; font-weight: 400; padding-inline: 4px; }
+.final-ayah cite { font: 400 .85rem var(--font); font-style: normal; color: #cfe3da; }
