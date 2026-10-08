@@ -773,3 +773,49 @@ p, li, figcaption, small { text-wrap: pretty; }
   .site-header .brand-name { display: none; }
   .header-nav a { padding: 0 9px; font-size: 14.5px; }
 }
+
+/* =====================================================================
+   Ramadan content sections (copy-led; reuse the shared type + colours)
+   ===================================================================== */
+.hero-whisper { margin: -8px 0 22px; font: 600 1.05rem/1.7 var(--font-display); color: var(--olive); }
+.zakat-sub, .sadaqah-sub { color: var(--ink-2); max-width: 34em; }
+
+.invite { background: var(--paper); }
+.invite-inner { max-width: 760px; text-align: center; }
+.invite-inner p { color: var(--ink-2); font-size: 1.08rem; }
+.invite-lead { font: 600 1.2rem/1.8 var(--font-display) !important; color: var(--heading) !important; }
+.invite-quote {
+  margin: 26px auto; padding: 16px 20px; max-width: 34em; border-radius: var(--r-md);
+  background: var(--ivory); color: var(--olive) !important; font-weight: 600; border-inline-start: 4px solid var(--gold);
+}
+
+.verse-inner { max-width: 760px; text-align: center; }
+.verse-inner > p { color: var(--ink-2); font-size: 1.05rem; }
+.ayah, .hadith { margin: 6px auto 26px; padding: 24px 20px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.ayah figcaption, .hadith figcaption { font-size: .92rem; font-weight: 600; color: var(--gold-ink); }
+.ayah blockquote { margin: 6px 0 4px; font: 700 clamp(1.45rem, 5.4vw, 2.05rem)/1.9 var(--font-display); color: var(--heading); }
+.ayah cite, .hadith cite { display: block; font-style: normal; font-size: .88rem; color: var(--ink-3); }
+.ayah-meaning { margin: 10px 0 0; font-size: .95rem; color: var(--ink-2); font-style: italic; }
+.verse-close { font: 700 1.15rem/1.8 var(--font-display); color: var(--olive) !important; }
+
+.kafala { background: var(--ivory); }
+.kafala-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 30px; align-items: center; }
+.kafala-figure { position: relative; border-radius: var(--r-xl); overflow: hidden; margin: 0; }
+.kafala-figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.kafala-copy p { color: var(--ink-2); }
+.hadith { margin: 6px 0 20px; text-align: start; }
+.hadith blockquote { margin: 6px 0 6px; font: 700 1.15rem/1.9 var(--font-display); color: var(--heading); }
+
+.final-lead { font-size: 1.12rem; }
+.final-verse { font: 600 clamp(1.1rem, 4.4vw, 1.35rem)/2 var(--font-display); color: #fff !important; margin: 18px 0; }
+.final-close { color: #e3efe9 !important; }
+.final-dua { margin: 22px 0 0; font-size: .95rem; color: #cfe3da !important; }
+
+@media (min-width: 900px) {
+  .kafala-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .kafala-figure img { aspect-ratio: 4 / 3.4; }
+  .ayah, .hadith { padding: 28px 30px; }
+}
+.ayah-meaning:empty { display: none; }
+.ayah .orn { font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Geeza Pro", "Arial", serif; font-weight: 400; color: var(--gold-ink); padding-inline: 4px; }
+@media (min-width: 900px) { .hero-copy h1 { font-size: clamp(2.6rem, 3.7vw, 3.6rem); } }

@@ -99,3 +99,14 @@ monthly-donation option.
 | "Bahjah on the ground" | News posts (Al Jazer agreement 4 Feb 2026, Sadah agreement 11 Feb 2026) linked from the official home page; activity photos from the profile | Reused the same photos and links as the sponsorship page (`assets/img/shared/`) |
 | Address in footer | Not found in the official pages' text (it may be in a map or image) | Kept the sponsorship page's wording so all footers match. **⚠ Confirm** |
 | "1,361 registered orphans (Dec 2023)" on the sponsorship page | The profile's statistics tables don't extract cleanly enough to tie the number to 2023 | **Not used here.** That tile shows Royal Decree 14/2000 instead. Re-check it on the sponsorship page |
+
+## Religious texts on the main page (added 8 Oct 2026)
+
+| Text | Exact wording used | Verified against |
+|---|---|---|
+| Quran, Al-Baqarah 2:110 (part) | ﴿وَمَا تُقَدِّمُوا لِأَنفُسِكُم مِّنْ خَيْرٍ تَجِدُوهُ عِندَ اللَّهِ﴾ [البقرة: 110] | surahquran.com/aya-110-sora-2.html; quran.ksu.edu.sa (Tafsir Ibn Kathir 2:110) |
+| Hadith | «أنا وكافل اليتيم في الجنة هكذا»، وأشار بالسبابة والوسطى، وفرّج بينهما شيئًا — رواه البخاري (5304) | Sahih al-Bukhari 5304 (also 6005, slightly different wording), narrated by Sahl ibn Sa'd: surahquran.com/Hadith-17271.html; Fath al-Bari (islamweb.net) |
+
+English mode shows the Arabic text unchanged plus an English meaning marked "(meaning)". No other verses or hadith are quoted.
+
+The orphan-sponsorship section photo (`assets/img/shared/photo-outing.webp`) comes from the Society profile's activity photos, via the sponsorship landing page.

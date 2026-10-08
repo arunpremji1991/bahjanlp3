@@ -67,28 +67,28 @@ window.BAHJAH_CONFIG = {
   campaigns: {
     general: {
       eyebrow: "جمعية بهجة العمانية للأيتام",
-      headline: "اجعل لعطائك أثراً يدوم",
-      sub: "زكاة، صدقة، كفارة أو مشروع موسمي — اختر باب عطائك، وأكمل تبرعك عبر الصفحات الرسمية لجمعية بهجة.",
-      primary:   { label: "اختر طريقة عطائك", href: "#choose" },
-      secondary: { label: "أخرج زكاتك الآن", route: "zakat", category: "zakat" },
-      sticky:    { label: "اختر طريقة عطائك", href: "#choose" },
+      headline: "في رمضان… اجعل لعطائك أثرًا في حياة يتيم",
+      sub: "رمضان شهر الرحمة، وشهر تتضاعف فيه أبواب الخير. اجعل من زكاتك وصدقتك وكفارتك سببًا في إدخال الفرح والطمأنينة إلى بيوت الأيتام. ومع جمعية بهجة العمانية للأيتام، يمكنك اختيار باب الخير الذي يناسبك، وإتمام تبرعك بأمان عبر القنوات الرسمية للجمعية.",
+      primary:   { label: "ساهم الآن", route: "hub", category: "general" },
+      secondary: { label: "اختر باب الخير", href: "#choose" },
+      sticky:    { label: "اختر باب الخير", href: "#choose" },
       final: {
-        title: "عطاءٌ قليل، وبهجةٌ كبيرة",
-        text: "اختر باب عطائك وأكمل تبرعك بأمان عبر الصفحة الرسمية لجمعية بهجة.",
-        primary:   { label: "ساهم بعطائك", route: "hub", category: "general" },
-        secondary: { label: "اختر نوع العطاء", href: "#choose" }
+        title: "عطاءٌ قد يبدو قليلًا… وأثره عند الله كبير",
+        text: "قد لا تعرف وجه من أسعدته صدقتك، وقد لا ترى أثر عطائك بعينيك… لكن الله يعلم.",
+        primary:   { label: "ساهم بعطائك الآن", route: "hub", category: "general" },
+        secondary: { label: "اختر باب الخير", href: "#choose" }
       },
       featured: "zakat",
       order: ["zakat", "ramadan", "kaffarat", "sadaqah"],
       heroImage: "iftar",
-      docTitle: "زكاة وصدقة وكفارات | جمعية بهجة العمانية للأيتام",
+      docTitle: "التبرع للأيتام في رمضان | زكاة وصدقة وكفارة — جمعية بهجة العمانية للأيتام",
       en: {
         eyebrow: "Omani Bahjah Orphan Society",
-        headline: "Give in a way that lasts",
-        sub: "Zakat, sadaqah, kaffarah or a seasonal project — choose how you give, then complete your donation on Bahjah's official pages.",
-        primary: "Choose how to give", secondary: "Pay your Zakat now", sticky: "Choose how to give",
-        final: { title: "A small gift, a great joy", text: "Choose how you give and complete your donation securely on Bahjah's official page.", primary: "Give now", secondary: "Choose a giving type" },
-        docTitle: "Zakat, Sadaqah & Kaffarat | Omani Bahjah Orphan Society"
+        headline: "This Ramadan… let your giving touch an orphan's life",
+        sub: "Ramadan is the month of mercy, when the doors of goodness open wider. Let your Zakat, Sadaqah and Kaffarah bring joy and peace of mind into the homes of orphans. With the Omani Bahjah Orphan Society, you can choose the door of goodness that suits you and complete your donation securely through the Society's official channels.",
+        primary: "Give now", secondary: "Choose a door of goodness", sticky: "Choose a door of goodness",
+        final: { title: "A gift that may seem small… yet great with Allah", text: "You may never see the face your Sadaqah made happy, nor witness the effect of your giving with your own eyes… but Allah knows.", primary: "Give now", secondary: "Choose a door of goodness" },
+        docTitle: "Donate to Orphans this Ramadan | Zakat, Sadaqah & Kaffarah — Omani Bahjah Orphan Society"
       }
     },
     zakat: {
