@@ -859,3 +859,10 @@ p, li, figcaption, small { text-wrap: pretty; }
 @media (min-width: 900px) and (max-width: 1179px) {
   .pay-trust { grid-template-columns: minmax(0, 1fr); gap: 18px; }
 }
+
+.hero-figure, .ramadan-bg { position: relative; }
+.ramadan-bg .fk-illustrative { top: auto; bottom: 12px; }
+/* AI final image: let the family be seen; keep the copy area dark enough for contrast */
+#final:not(.fk-final) .final-bg::after { background: linear-gradient(180deg, rgba(11, 59, 51, .30) 0%, rgba(11, 59, 51, .62) 38%, rgba(11, 59, 51, .84) 70%, rgba(11, 59, 51, .92) 100%); }
+#final:not(.fk-final) .final-bg img { object-position: 50% 30%; }
+@media (max-width: 899px) { .ramadan-bg .fk-illustrative { top: 12px; bottom: auto; } }

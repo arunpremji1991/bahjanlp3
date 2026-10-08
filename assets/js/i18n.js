@@ -104,8 +104,7 @@ window.BAHJAH_I18N = {
     "doors.hardship": "Easing a family's hardship.",
     "doors.water": "Providing drinking water.",
     "doors.build": "Homes of orphan families.",
-    "doors.note": "Images marked “From Bahjah” are from the society's published materials; the other images are illustrative, from Pexels, and do not depict the society's beneficiaries.",
-
+    "doors.note": "Images marked “From Bahjah” are from the society's published materials; the other images are illustrative and AI-generated, and do not depict real people or the society's beneficiaries.",
     "trust.kicker": "About the society",
     "trust.title": "Trusted giving",
     "trust.caption": "From Bahjah's activities",
@@ -258,7 +257,7 @@ window.BAHJAH_I18N = {
     "footer.privacy": "Privacy policy",
     "footer.lang": "العربية",
     "footer.sources": "Content and image sources",
-    "footer.sources.main": "<li>bahjah.org.om/wp/ — about, founding date, awards, contact details, app links</li><li>bahjah.org.om/wp/التبرعات/ and project pages — Zakat, Kaffarat (OMR 15 / 1.5 / 45), Ramadan Basket, Sadaqah and other projects</li><li>“Ramadan Basket 2026 / 1447 AH” announcement on bahjah.org.om — basket value OMR 15 and bank accounts</li><li>bahjah.org.om/wp/الاسئلة-الشائعة/ — payment methods (Bank Muscat SmartPay)</li><li>bahjah.org.om/wp/المركز-الاعلامي/ — news</li><li>jood.om — the Society's initiatives on the Jood platform</li><li>Society profile (CV-Print-Proof.pdf) — founding, ISO certificate, programmes, activity photos</li><li>Illustrative images from Pexels — each image's source is noted in the code</li>",
+    "footer.sources.main": "<li>bahjah.org.om/wp/ — about, founding date, awards, contact details, app links</li><li>bahjah.org.om/wp/التبرعات/ and project pages — Zakat, Kaffarat (OMR 15 / 1.5 / 45), Ramadan Basket, Sadaqah and other projects</li><li>“Ramadan Basket 2026 / 1447 AH” announcement on bahjah.org.om — basket value OMR 15 and bank accounts</li><li>bahjah.org.om/wp/الاسئلة-الشائعة/ — payment methods (Bank Muscat SmartPay)</li><li>bahjah.org.om/wp/المركز-الاعلامي/ — news</li><li>jood.om — the Society's initiatives on the Jood platform</li><li>Society profile (CV-Print-Proof.pdf) — founding, ISO certificate, programmes, activity photos</li><li>Illustrative images: AI-generated (Higgsfield) and not depicting real people or the society's beneficiaries; the Eid image is from Pexels — each image's source is noted in the code</li>",
     "footer.sources.fk": "<li>bahjah.org.om/wp/product/فك-كربة/ — the «Fak Korba» donation page</li><li>jood.om — the «Fak Korba» initiative (cash assistance – debt settlement)</li><li>bahjah.org.om/wp/ — about, founding date, awards, contact details</li><li>bahjah.org.om/wp/الاسئلة-الشائعة/ — payment methods (Bank Muscat SmartPay)</li><li>bahjah.org.om/wp/المركز-الاعلامي/ — news</li><li>Society profile (CV-Print-Proof.pdf) — founding, ISO certificate, activity photos</li><li>Illustrative images from Pexels — silhouettes that do not depict specific people; each image's source is noted in the code</li>",
     "footer.copy": "This landing page directs visitors to the Society's official donation channels. It does not process payments or store financial data.",
     "hero.whisper": "Your Zakat… your Sadaqah… your Kaffarah… may be the joy a family in need is waiting for.",
@@ -308,6 +307,7 @@ window.BAHJAH_I18N = {
     "fk.faraj.p3": "Give seeking the Face of Allah… and we ask Allah to place your giving in the scale of your good deeds.",
     "fk.final.text": "You may never know whose hardship you eased, nor see the effect of your giving with your own eyes… but Allah knows.",
     "fk.final.dua": "We ask Allah to relieve the hardship of all who are in distress, and to accept from us and from you.",
+    "ai.tag": "Illustrative image",
     "thanks": "Thank you for your giving — may Allah accept it from you."
   }
 };

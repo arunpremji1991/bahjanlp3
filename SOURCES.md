@@ -117,3 +117,23 @@ The orphan-sponsorship section photo (`assets/img/shared/photo-outing.webp`) com
 |---|---|---|
 | Hadith (excerpt; the omitted middle part is marked with …) | «مَن نفَّس عن مؤمنٍ كُربةً من كُرَب الدنيا، نفَّس اللهُ عنه كُربةً من كُرَب يوم القيامة، ومَن يسَّر على مُعسِر، يسَّر اللهُ عليه في الدنيا والآخرة… واللهُ في عون العبد ما كان العبدُ في عون أخيه» — رواه مسلم (2699) | Sahih Muslim 2699 (Abu Hurayrah): alukah.net; dorar.net |
 | Quran, Ash-Sharh 94:5 | ﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا﴾ [الشرح: 5] | quran.com/ash-sharh/5; quran.ksu.edu.sa (Tafsir Ibn Kathir 94:5) |
+
+## AI-generated illustrative images on the main page (8 Oct 2026)
+
+Generated with Higgsfield AI (model `gpt_image_2_5`, high quality, 2K), on the client's request, to replace the generic Pexels images. They show **no real people and no Bahjah beneficiaries**. The page says so in the mosaic note, the footer source list and the «صورة تعبيرية» tags on the hero and Ramadan images. Every `<img>` carries `data-source="Higgsfield AI … job <id>"`. Originals are in `assets/img/src/ai-*` (git-ignored); variants are in `assets/img/opt/ai-*`.
+
+| Variant | Higgsfield job | Used in |
+|---|---|---|
+| `ai-hero-wide` / `ai-hero-tall` | 4712dc5c-915b-40e1-993a-0212a9c5a891 | Hero (all campaigns except Eid) |
+| `ai-zakat-family` | 1bf62ef5-233a-4427-b3ab-90d4c6f899c3 | Chooser «الزكاة» card |
+| `ai-basket-prep` | 90010611-1197-4819-974c-f9f05a52228d | Chooser «السلة الرمضانية» card |
+| `ai-meals` | 519a45de-7310-43fb-99df-fc1d91c9e9f3 | Chooser «الكفارات» card + Kaffarah section |
+| `ai-grandfather` | f522c09a-52f7-48fa-b852-4c0c3be4fc12 | Chooser «الصدقة» card + Sadaqah section |
+| `ai-reflection` | d97666f6-afb2-4d44-aa4b-b4d4095af1ac | Zakat section |
+| `ai-iftar-family` | 5cc75d4e-62fd-46ad-bc1d-c92ee3f229ba | Ramadan Basket stage (#ramadan) |
+| `ai-basket-delivery` | 1f3e032d-5037-40b0-bf50-11a2a397fbce | Ramadan inset + mosaic «السلة الرمضانية» |
+| `ai-community` | d8f5da95-306e-425b-b8d1-7e4457da859c | Mosaic «الزكاة» (where your giving goes) |
+| `ai-water` | 9a7cdc36-08ac-4684-a987-074ba6f57720 | Mosaic «مياه بهجة» |
+| `ai-final-wide` / `ai-final-tall` | d64ff173-058f-46df-8957-14cb83a8eb96 | Final CTA background |
+
+**Preserved (real, documentary):** the sponsorship-section photo (`shared/photo-outing`), the mosaic tiles «كفالة الأيتام», «فك كربة» and «بناء وترميم» (Bahjah's own Jood images), the "On the ground" gallery, the trust photo, the award logos and the Bahjah logo. The Eid-campaign hero (Pexels 7249766) is unchanged. The «فك كربة» page images are unchanged.

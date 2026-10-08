@@ -19,29 +19,23 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 # name: (source file, crop box, widths)
 JOBS = {
-    # Hero — hands breaking bread at iftar time (Pexels 7129737)
-    "hero-wide":      ("hero-iftar_pexels-7129737.jpg", None, [640, 960, 1400]),
-    "hero-tall":      ("hero-iftar_pexels-7129737.jpg", (640, 0, 1706, 1333), [560, 840, 1066]),
+    # ---- AI-generated illustrative images (Higgsfield · gpt_image_2_5, 8 Oct 2026) ----
+    "ai-hero-tall":        ("ai-hero_hf-4712dc5c_mirrored.png", None, [600, 900, 1300]),
+    "ai-hero-wide":        ("ai-hero_hf-4712dc5c_mirrored.png", (0, 560, 2048, 1925), [640, 960, 1400]),
+    "ai-basket-prep":      ("ai-basket-prep_hf-90010611.png", None, [480, 800, 1200]),
+    "ai-zakat-family":     ("ai-zakat-family_hf-1bf62ef5.png", None, [480, 800, 1200]),
+    "ai-reflection":       ("ai-reflection_hf-d97666f6.png", None, [480, 800, 1200]),
+    "ai-basket-delivery":  ("ai-basket-delivery_hf-1f3e032d.png", None, [400, 640, 960]),
+    "ai-iftar-family":     ("ai-iftar-family_hf-5cc75d4e.png", None, [640, 1000, 1600]),
+    "ai-meals":            ("ai-meals_hf-519a45de.png", None, [480, 800, 1200]),
+    "ai-grandfather":      ("ai-grandfather_hf-f522c09a.png", None, [640, 1000, 1400]),
+    "ai-community":        ("ai-community_hf-d8f5da95.png", None, [480, 800, 1200]),
+    "ai-water":            ("ai-water_hf-9a7cdc36.png", None, [400, 640, 960]),
+    "ai-final-wide":       ("ai-final-family_hf-d64ff173.png", (0, 460, 2048, 1612), [800, 1400]),
+    "ai-final-tall":       ("ai-final-family_hf-d64ff173.png", None, [560, 900]),
     # Eid variant hero (Pexels 7249766)
     "eid-wide":       ("eid-dates_pexels-7249766.jpg", (0, 560, 1333, 1449), [640, 960, 1333]),
     "eid-tall":       ("eid-dates_pexels-7249766.jpg", (0, 250, 1333, 1916), [560, 840, 1066]),
-    # Zakat — dates + Mushaf page (Pexels 7427851)
-    "zakat-tall":     ("zakat-dates-quran_pexels-7427851.jpg", (360, 0, 1426, 1333), [480, 800, 1066]),
-    "zakat-wide":     ("zakat-dates-quran_pexels-7427851.jpg", None, [640, 960]),
-    # Zakat calculator texture — mosque arch window only, person cropped out (Pexels 8164713)
-    "arch":           ("mosque-arch_pexels-8164713.jpg", (470, 10, 1290, 660), [480, 800]),
-    # Ramadan basket — iftar table (Pexels 20488448) + groceries (Pexels 8805171)
-    "ramadan-wide":   ("ramadan-table_pexels-20488448.jpg", None, [640, 1000, 1600]),
-    "groceries-tall": ("ramadan-groceries_pexels-8805171.jpg", (0, 280, 1333, 1946), [400, 640]),
-    # Kaffarat — packing meals (Pexels 6995260)
-    "kaffarat-wide":  ("kaffarat-meals_pexels-6995260.jpg", None, [640, 1000, 1400]),
-    # Sadaqah — volunteers packing food (Pexels 6995201)
-    "sadaqah-wide":   ("sadaqah-packing_pexels-6995201.jpg", None, [640, 1000, 1400]),
-    # Water project tile (Pexels 6642422)
-    "water-tall":     ("water_pexels-6642422.jpg", (0, 120, 1334, 1788), [400, 640]),
-    # Final CTA background — shared table (Pexels 21856018)
-    "final-wide":     ("sharing-table_pexels-21856018.jpg", (0, 280, 1600, 1180), [800, 1400]),
-    "final-tall":     ("sharing-table_pexels-21856018.jpg", None, [560, 900]),
     # Fak Korba page (Pexels 29810534 / 26775361 / 29702438) — anonymous silhouettes / hands only
     "fk-hero-tall":   ("fk-hero_pexels-29810534.jpg", (0, 100, 2000, 2600), [560, 840, 1200]),
     "fk-hero-wide":   ("fk-hero_pexels-29810534.jpg", (0, 600, 2000, 2480), [640, 960, 1400]),
