@@ -825,3 +825,37 @@ p, li, figcaption, small { text-wrap: pretty; }
 .final-ayah { margin: 0 0 10px; font: 700 clamp(1.3rem, 5vw, 1.7rem)/1.8 var(--font-display); color: #f3e3b8 !important; }
 .final-ayah .orn { font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", "Geeza Pro", "Arial", serif; font-weight: 400; padding-inline: 4px; }
 .final-ayah cite { font: 400 .85rem var(--font); font-style: normal; color: #cfe3da; }
+
+/* =====================================================================
+   Layout polish after the content rewrite (QA 8 Oct 2026)
+   ===================================================================== */
+.brand { min-height: 44px; }
+
+/* Phones: shorter image crops so copy and CTAs come sooner */
+@media (max-width: 699px) {
+  .zakat-figure img { aspect-ratio: 16 / 11; }
+  .kafala-figure img { aspect-ratio: 16 / 10; }
+  .way { padding: 20px 18px; }
+  .way-no { font-size: 2rem; margin-bottom: 10px; }
+  .invite-quote { margin: 20px auto; }
+}
+/* Tablets (single-column range) */
+@media (min-width: 700px) and (max-width: 899px) {
+  .hero-img { aspect-ratio: 16 / 9; }
+  .kafala-figure img { aspect-ratio: 16 / 9; }
+}
+@media (min-width: 700px) and (max-width: 959px) {
+  .fk-help-grid { grid-template-columns: repeat(2, 1fr); }
+  .fk-pay-grid { grid-template-columns: minmax(0, 1fr); }
+}
+/* Small laptops: give dense blocks the full width */
+@media (min-width: 960px) and (max-width: 1179px) {
+  .why-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .why-grid .section-head { text-align: center; margin: 0 auto; }
+  .why-grid .section-head p { margin-inline: auto; }
+  .sadaqah-grid { grid-template-columns: 1fr 1fr; gap: 44px; }
+  .fk-pay-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 900px) and (max-width: 1179px) {
+  .pay-trust { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+}

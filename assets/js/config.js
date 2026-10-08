@@ -68,7 +68,7 @@ window.BAHJAH_CONFIG = {
     general: {
       eyebrow: "جمعية بهجة العمانية للأيتام",
       headline: "في رمضان… اجعل لعطائك أثرًا في حياة يتيم",
-      sub: "رمضان شهر الرحمة، وشهر تتضاعف فيه أبواب الخير. اجعل من زكاتك وصدقتك وكفارتك سببًا في إدخال الفرح والطمأنينة إلى بيوت الأيتام. ومع جمعية بهجة العمانية للأيتام، يمكنك اختيار باب الخير الذي يناسبك، وإتمام تبرعك بأمان عبر القنوات الرسمية للجمعية.",
+      sub: "رمضان شهر الرحمة، وشهر تتضاعف فيه أبواب الخير. اجعل من زكاتك وصدقتك وكفارتك سببًا في إدخال الفرح والطمأنينة إلى بيوت الأيتام، وأتمّ تبرعك بأمان عبر القنوات الرسمية لجمعية بهجة العمانية للأيتام.",
       primary:   { label: "ساهم الآن", route: "hub", category: "general" },
       secondary: { label: "اختر باب الخير", href: "#choose" },
       sticky:    { label: "اختر باب الخير", href: "#choose" },
@@ -85,7 +85,7 @@ window.BAHJAH_CONFIG = {
       en: {
         eyebrow: "Omani Bahjah Orphan Society",
         headline: "This Ramadan… let your giving touch an orphan's life",
-        sub: "Ramadan is the month of mercy, when the doors of goodness open wider. Let your Zakat, Sadaqah and Kaffarah bring joy and peace of mind into the homes of orphans. With the Omani Bahjah Orphan Society, you can choose the door of goodness that suits you and complete your donation securely through the Society's official channels.",
+        sub: "Ramadan is the month of mercy, when the doors of goodness open wider. Let your Zakat, Sadaqah and Kaffarah bring joy and peace of mind into the homes of orphans, and complete your donation securely through the official channels of the Omani Bahjah Orphan Society.",
         primary: "Give now", secondary: "Choose a door of goodness", sticky: "Choose a door of goodness",
         final: { title: "A gift that may seem small… yet great with Allah", text: "You may never see the face your Sadaqah made happy, nor witness the effect of your giving with your own eyes… but Allah knows.", primary: "Give now", secondary: "Choose a door of goodness" },
         docTitle: "Donate to Orphans this Ramadan | Zakat, Sadaqah & Kaffarah — Omani Bahjah Orphan Society"

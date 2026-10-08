@@ -71,7 +71,7 @@ window.BAHJAH_I18N = {
 
     "ramadan.kicker": "Ramadan Basket",
     "ramadan.title": "A Ramadan basket… a family's joy",
-    "ramadan.text": "The Bahjah Society provides a food basket to the orphan families registered with it during the blessed month of Ramadan, as an annual project in which the basket is distributed once during the month to orphan families across the governorate's wilayats.",
+    "ramadan.text": "An annual project in which the Bahjah Society provides a food basket to the orphan families registered with it, distributed once during the blessed month of Ramadan across the governorate's wilayats.",
     "ramadan.unit": "OMR<small>per basket</small>",
     "ramadan.source": "Basket value for the Ramadan 2026 / 1447 AH campaign, as announced by the society.",
     "ramadan.cta": "Contribute a Ramadan basket",
@@ -179,7 +179,7 @@ window.BAHJAH_I18N = {
     "fk.illustrative": "Illustrative image",
     "fk.eyebrow": "Fak Korba · Urgent donation",
     "fk.h1": "Someone needs<br>your help today",
-    "fk.sub": "Debt can weigh heavily on a family, turning every day into a wait for relief. Through the «Fak Korba» project of the Omani Bahjah Orphan Society, your donation may — by Allah's will — be the reason a family's burden is lifted and peace returns to their home.",
+    "fk.sub": "Debt can weigh heavily on a family, turning every day into a wait for relief. By giving to the «Fak Korba» project, you may — by Allah's will — be the reason their burden is lifted and peace returns to their home.",
     "fk.hero.cta": "Give now to relieve the hardship",
     "fk.urgent": "Urgent case",
     "fk.case.title": "Case details",
