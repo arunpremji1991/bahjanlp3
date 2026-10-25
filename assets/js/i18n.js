@@ -308,7 +308,7 @@ window.BAHJAH_I18N = {
     "fk.final.text": "You may never know whose hardship you eased, nor see the effect of your giving with your own eyes… but Allah knows.",
     "fk.final.dua": "We ask Allah to relieve the hardship of all who are in distress, and to accept from us and from you.",
     "ai.tag": "Illustrative image",
-    "footer.credit": "Designed and developed by <span lang=\"en\" dir=\"ltr\">Glomark</span>",
+    "footer.credit": "Designed and developed by <a href=\"https://glomark.com\" target=\"_blank\" rel=\"noopener\" lang=\"en\" dir=\"ltr\" data-cta=\"footer_glomark\">Glomark</a>",
     "thanks": "Thank you for your giving — may Allah accept it from you."
   }
 };

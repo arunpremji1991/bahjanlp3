@@ -871,3 +871,5 @@ p, li, figcaption, small { text-wrap: pretty; }
 .footer-credit { margin: 0; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, .12); font-size: 12.5px; color: var(--on-dark-2); letter-spacing: .01em; }
 .footer-credit span { color: #e4efea; font-weight: 600; }
 @media (min-width: 960px) { .footer-grid .footer-credit { grid-column: 1 / -1; } }
+.footer-credit a { color: #e4efea; font-weight: 600; text-decoration: none; }
+.footer-credit a:hover { text-decoration: underline; }
